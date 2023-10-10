@@ -1,0 +1,24 @@
+.card-container {
+  position: relative;
+  width: 50%;
+  height: 190px;
+  padding: 0.5em;
+}
+
+.card-container:nth-child(odd) {
+  background: var(--color-blue-3);
+}
+
+.card-container:nth-child(even) {
+  background: var(--color-blue-2);
+}
+
+.card-container button {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+
+.card-content {
+  text-align: right;
+}
