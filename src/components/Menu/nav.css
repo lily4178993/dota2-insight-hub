@@ -110,6 +110,17 @@ ul.nav-links li {
   position: relative;
 }
 
+.dev-infos a,
+.nav-social-media ul li a {
+  position: relative;
+  bottom: -20px;
+  padding-left: 2em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  opacity: 0;
+  transition: all 2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 ul.nav-links li a {
   position: relative;
   top: 0;
@@ -143,18 +154,13 @@ ul.nav-links li a {
   display: flex;
 }
 
-.dev-infos a,
-.nav-social-media ul li a {
-  position: relative;
-  bottom: -20px;
-  padding-left: 2em;
-  text-transform: uppercase;
-  color: var(--color-white);
-  opacity: 0;
-  transition: all 2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
 @media (max-width: 900px) {
+  .dev-infos a,
+  .nav-social-media ul li a {
+    font-size: 0.7em;
+    padding: 0 0.35em;
+  }
+
   ul.nav-links li a {
     font-size: 3em;
   }
@@ -162,11 +168,5 @@ ul.nav-links li a {
   .nav-footer {
     justify-content: space-around;
     padding: 2em 0.7em;
-  }
-
-  .dev-infos a,
-  .nav-social-media ul li a {
-    font-size: 0.7em;
-    padding: 0 0.35em;
   }
 }
