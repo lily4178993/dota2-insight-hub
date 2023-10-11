@@ -7,7 +7,10 @@ const Nav = () => {
   return (
     <nav className="nav">
       <div className="nav-container">
-        <div className="navbar">
+        <div
+          className="navbar"
+          style={{ background: isNavOpen ? '' : 'var(--color-blue-4)' }}
+        >
           <button
             type="button"
             title={isNavOpen ? 'close' : 'menu'}

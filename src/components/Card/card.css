@@ -1,24 +1,71 @@
 .card-container {
   position: relative;
-  width: 50%;
+  width: 25%;
   height: 190px;
   padding: 0.5em;
 }
 
-.card-container:nth-child(odd) {
+.card-image {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  width: 140px;
+  height: 140px;
+}
+
+.card-image img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(10%) opacity(80%);
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-container:hover .card-image img,
+.card-container:focus-within .card-image img {
+  filter: brightness(100%) opacity(100%);
+  transform: scale(1.1);
+}
+
+.card-container.odd {
   background: var(--color-blue-3);
 }
 
-.card-container:nth-child(even) {
+.card-container.even {
   background: var(--color-blue-2);
 }
 
 .card-container button {
   position: absolute;
-  top: 2px;
-  right: 2px;
+  top: 0.5em;
+  right: 1em;
+}
+
+.card-container button i {
+  font-size: 1.4em;
 }
 
 .card-content {
+  position: absolute;
+  bottom: 1.4em;
+  right: 1em;
   text-align: right;
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    width: 50%;
+  }
+
+  .card-container:nth-child(4n - 3),
+  .card-container:nth-child(4n - 4) {
+    background: var(--color-blue-2);
+  }
+
+  .card-container:nth-child(4n - 2),
+  .card-container:nth-child(4n - 1) {
+    background: var(--color-blue-3);
+  }
 }
