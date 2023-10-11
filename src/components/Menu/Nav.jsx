@@ -83,14 +83,14 @@ const Nav = () => {
               <Link
                 to="/"
                 rel="noopener noreferrer"
-                aria-label="Matches"
+                aria-label="Pro Matches"
                 onClick={() => setIsNavOpen(!isNavOpen)}
                 style={{
                   top: isNavOpen ? '0' : '120px',
                   transitionDelay: isNavOpen ? '1.1s' : '0s',
                 }}
               >
-                Matches
+                Pro Matches
               </Link>
               <div className="nav-item-wrapper"> </div>
             </li>
@@ -98,14 +98,14 @@ const Nav = () => {
               <Link
                 to="/"
                 rel="noopener noreferrer"
-                aria-label="Trends"
+                aria-label="Pro Players"
                 onClick={() => setIsNavOpen(!isNavOpen)}
                 style={{
                   top: isNavOpen ? '0' : '120px',
                   transitionDelay: isNavOpen ? '1.2s' : '0s',
                 }}
               >
-                Trends
+                Pro Players
               </Link>
               <div className="nav-item-wrapper"> </div>
             </li>
