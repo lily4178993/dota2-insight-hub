@@ -17,7 +17,7 @@ const Card = ({ cardImage, cardTitle, cardCount }) => (
 );
 
 Card.propTypes = {
-  cardCount: PropTypes.string.isRequired,
+  cardCount: PropTypes.number.isRequired,
   cardImage: PropTypes.string.isRequired,
   cardTitle: PropTypes.string.isRequired,
 };
