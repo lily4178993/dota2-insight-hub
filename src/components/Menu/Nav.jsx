@@ -7,21 +7,28 @@ const Nav = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const location = useLocation();
 
-  const routeToPath = {
-    heroes: '/heroes',
-    items: '/items',
-    matches: '/proMatches',
-    players: '/proPlayers',
+  // Define a function to determine the route based on the pathname
+  const getRoute = () => {
+    const { pathname } = location;
+    if (pathname.match(/\/details\/[^/]+\/[^/]+/)) {
+      return `/details/${pathname.split('/').slice(2, -1).join('/')}`;
+    } if (pathname.match(/\/details\/[^/]+/)) {
+      return '/';
+    }
+    return 'home';
   };
 
-  const activeRoute = Object.keys(routeToPath).find((route) => location.pathname.includes(routeToPath[route])) || 'home';
+  const activeRoute = getRoute();
 
   return (
     <>
-      {/* {!isNavOpen && activeRoute !== 'home' && <BackToButton buttonLocation="/" />} */}
       <nav className="nav">
         <div className="nav-container">
-          {!isNavOpen && activeRoute !== 'home' && <BackToButton buttonLocation="/" />}
+          {!isNavOpen && activeRoute !== 'home' && (
+          <Link to={activeRoute} title="Go back">
+            <BackToButton />
+          </Link>
+          )}
           <div
             className="navbar"
             style={{ background: isNavOpen ? '' : 'var(--color-blue-4)' }}

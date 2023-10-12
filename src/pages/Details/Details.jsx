@@ -10,7 +10,7 @@ const Details = () => {
       Details:
       {' '}
       {detailsListName || 'Data not found'}
-      <Link to="/">
+      <Link to={`/details/${detailsListName}/01`}>
         <Card
           cardImage={heroesImage}
           cardTitle="A title"
