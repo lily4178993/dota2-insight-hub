@@ -1,0 +1,19 @@
+.backButton {
+  position: fixed;
+  left: 0.7em;
+  top: 1.2em;
+  border-radius: 50%;
+  z-index: 3;
+}
+
+.backButton:hover {
+  background: var(--color-black-2);
+}
+
+.backButton button {
+  padding: 0.3em;
+}
+
+.backButton button i {
+  font-size: 1.7em;
+}
