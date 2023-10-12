@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { Home } from './pages';
+import { Details, Home } from './pages';
 import { Header } from './components';
 
 const App = () => (
@@ -16,6 +16,10 @@ const App = () => (
         <Route
           path="/home"
           element={<Home />}
+        />
+        <Route
+          path="/details/:detailsListName"
+          element={<Details />}
         />
       </Routes>
     </main>

@@ -1,4 +1,16 @@
 .home-container {
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
+}
+
+.home-container a {
+  width: 25%;
+  color: var(--color-white);
+}
+
+@media (max-width: 768px) {
+  .home-container a {
+    width: 50%;
+  }
 }

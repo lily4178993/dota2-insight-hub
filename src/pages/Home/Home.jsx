@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Card, Filter } from '../../components';
 import { fetchHeroes } from '../../redux/slices/heroesSlice';
@@ -58,18 +59,25 @@ const Home = () => {
     return data;
   };
 
+  const urlSpaceChecker = (stringParam) => {
+    const stringWithoutSpaces = stringParam.replace(/\s/g, '');
+    const firstLetter = stringWithoutSpaces.charAt(0).toLowerCase();
+    return firstLetter + stringWithoutSpaces.slice(1);
+  };
+
   return (
     <section>
       <Filter setFilter={setFilter} />
       <div className="home-container">
         {filterCardsByLength().map((cardData, index) => (
-          <Card
-            key={cardData.cardTitle}
-            cardImage={cardData.cardImage}
-            cardTitle={cardData.cardTitle}
-            cardCount={cardData.cardCount}
-            index={index % 2 === 0 ? 1 : 2}
-          />
+          <Link to={`/details/${urlSpaceChecker(`${cardData.cardTitle}`)}`} key={cardData.cardTitle}>
+            <Card
+              cardImage={cardData.cardImage}
+              cardTitle={cardData.cardTitle}
+              cardCount={cardData.cardCount}
+              index={index % 2 === 0 ? 1 : 2}
+            />
+          </Link>
         ))}
       </div>
     </section>
