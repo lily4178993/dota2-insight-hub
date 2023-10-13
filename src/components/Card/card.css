@@ -19,6 +19,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 50%;
   filter: brightness(10%) opacity(80%);
   transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -27,14 +28,6 @@
 .card-container:focus-within .card-image img {
   filter: brightness(100%) opacity(100%);
   transform: scale(1.1);
-}
-
-.card-container.odd {
-  background: var(--color-blue-3);
-}
-
-.card-container.even {
-  background: var(--color-blue-2);
 }
 
 .card-container button {
@@ -57,15 +50,5 @@
 @media (max-width: 768px) {
   .card-container {
     width: 100%;
-  }
-
-  .card-container:nth-child(4n - 3),
-  .card-container:nth-child(4n - 4) {
-    background: var(--color-blue-2);
-  }
-
-  .card-container:nth-child(4n - 2),
-  .card-container:nth-child(4n - 1) {
-    background: var(--color-blue-3);
   }
 }

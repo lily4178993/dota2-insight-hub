@@ -9,8 +9,28 @@
   color: var(--color-white);
 }
 
+.home-container a:nth-child(4n + 1),
+.home-container a:nth-child(4n + 3) {
+  background: var(--color-blue-2);
+}
+
+.home-container a:nth-child(4n + 2),
+.home-container a:nth-child(4n + 4) {
+  background: var(--color-blue-3);
+}
+
 @media (max-width: 768px) {
   .home-container a {
     width: 50%;
+  }
+
+  .home-container a:nth-child(4n + 1),
+  .home-container a:nth-child(4n + 4) {
+    background: var(--color-blue-2);
+  }
+
+  .home-container a:nth-child(4n + 2),
+  .home-container a:nth-child(4n + 3) {
+    background: var(--color-blue-3);
   }
 }

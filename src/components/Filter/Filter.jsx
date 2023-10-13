@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import './filter.css';
 
 const Filter = ({ setFilter }) => {
-  const [isBoxFilterOpen, setIsBoxFilterOpen] = useState(false);
+  const [isBoxFilterOpen, setIsBoxFilterOpen] = useState(true);
 
   return (
     <div className="header-filter-box">
-      <span>All categories</span>
+      <span>Choose a Card</span>
       <button type="button" title="Filter" onClick={() => setIsBoxFilterOpen(!isBoxFilterOpen)}>
         {isBoxFilterOpen ? 'Filter' : 'Filter By'}
         {' '}
@@ -31,7 +31,6 @@ const Filter = ({ setFilter }) => {
             >
               Names
             </button>
-
           </li>
           <li>
             <button
@@ -41,7 +40,6 @@ const Filter = ({ setFilter }) => {
             >
               Counts
             </button>
-
           </li>
         </ul>
       </div>

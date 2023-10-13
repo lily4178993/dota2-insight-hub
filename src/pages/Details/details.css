@@ -1,1 +1,44 @@
-/* For details list */
+.detailsList-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.detailsList-container a {
+  width: 25%;
+  color: var(--color-white);
+}
+
+.detailsList-container a:nth-child(8n + 1),
+.detailsList-container a:nth-child(8n + 3),
+.detailsList-container a:nth-child(8n + 6),
+.detailsList-container a:nth-child(8n + 8) {
+  background: var(--color-blue-2);
+}
+
+.detailsList-container a:nth-child(8n + 2),
+.detailsList-container a:nth-child(8n + 4),
+.detailsList-container a:nth-child(8n + 5),
+.detailsList-container a:nth-child(8n + 7) {
+  background: var(--color-blue-3);
+}
+
+@media (max-width: 768px) {
+  .detailsList-container a {
+    width: 50%;
+  }
+
+  .detailsList-container a:nth-child(8n + 1),
+  .detailsList-container a:nth-child(8n + 4),
+  .detailsList-container a:nth-child(8n + 5),
+  .detailsList-container a:nth-child(8n + 8) {
+    background: var(--color-blue-2);
+  }
+
+  .detailsList-container a:nth-child(8n + 2),
+  .detailsList-container a:nth-child(8n + 3),
+  .detailsList-container a:nth-child(8n + 6),
+  .detailsList-container a:nth-child(8n + 7) {
+    background: var(--color-blue-3);
+  }
+}

@@ -1,5 +1,5 @@
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
-import logger from 'redux-logger';
+import { configureStore/* , getDefaultMiddleware */ } from '@reduxjs/toolkit';
+/* import logger from 'redux-logger'; */
 import heroReducer from './slices/heroesSlice';
 import itemReducer from './slices/itemsSlice';
 import matchReducer from './slices/matchesSlice';
@@ -12,7 +12,7 @@ const store = configureStore({
     matches: matchReducer,
     players: playerReducer,
   },
-  middleware: [...getDefaultMiddleware(), logger],
+  /* middleware: [...getDefaultMiddleware(), logger], */
 });
 
 export default store;
