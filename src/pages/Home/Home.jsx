@@ -69,13 +69,12 @@ const Home = () => {
     <section>
       <Filter setFilter={setFilter} />
       <div className="home-container">
-        {filterCardsByLength().map((cardData, index) => (
+        {filterCardsByLength().map((cardData) => (
           <Link to={`/details/${urlSpaceChecker(`${cardData.cardTitle}`)}`} key={cardData.cardTitle}>
             <Card
               cardImage={cardData.cardImage}
               cardTitle={cardData.cardTitle}
               cardCount={cardData.cardCount}
-              index={index % 2 === 0 ? 1 : 2}
             />
           </Link>
         ))}
