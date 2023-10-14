@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import {
   AboutMe, Details, DetailsItem, Home, References,
 } from './pages';
-import { Header } from './components';
+import { Footer, Header } from './components';
 
 const App = () => (
   <>
@@ -37,6 +37,7 @@ const App = () => (
         />
       </Routes>
     </main>
+    <Footer />
   </>
 );
 

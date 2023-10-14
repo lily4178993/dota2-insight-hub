@@ -12,6 +12,7 @@
   max-width: 500px;
   width: 100%;
   height: 100%;
+  z-index: 3;
 }
 
 .hero-info-container .hero-image img {
