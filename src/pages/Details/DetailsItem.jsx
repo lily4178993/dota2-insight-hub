@@ -31,49 +31,60 @@ const DetailsItem = () => {
   const renderComponent = () => {
     switch (detailsListName) {
       case 'heroes':
-        return detailsData[detailsItemID] ? (
-          <HeroInfo data={detailsData[detailsItemID - 1]} />
-        ) : (
+        if (detailsData && detailsData.length > 0 && detailsData[detailsItemID]) {
+          return <HeroInfo data={detailsData[detailsItemID - 1]} />;
+        }
+        return (
           <div className="error-fetch">
             Something went wrong!
             <br />
-            Hero&quot;s data not found
+            Hero&apos;s data not found
           </div>
         );
       case 'items':
-        // eslint-disable-next-line no-case-declarations
-        const selectedItem = detailsData.find((item) => item.key === detailsItemID);
-        return selectedItem ? (
-          <ItemPresentation data={selectedItem} />
-        ) : (
+        if (detailsData && detailsData.length > 0) {
+          const selectedItem = detailsData.find((item) => item.key === detailsItemID);
+          if (selectedItem) {
+            return <ItemPresentation data={selectedItem} />;
+          }
+        }
+        return (
           <div className="error-fetch">
             Something went wrong!
             <br />
-            Item&quot;s data not found
+            Item&apos;s data not found
           </div>
         );
       case 'proMatches':
-        // eslint-disable-next-line no-case-declarations
-        const index = detailsData.findIndex((object) => object.match_id === Number(detailsItemID));
-        if (index !== -1) return <MatchInfo data={detailsData[index]} />;
+        if (detailsData && detailsData.length > 0) {
+          const index = detailsData.findIndex(
+            (object) => object.match_id === Number(detailsItemID),
+          );
+          if (index !== -1) {
+            return <MatchInfo data={detailsData[index]} />;
+          }
+        }
         return (
           <div className="error-fetch">
             Something went wrong!
             <br />
-            Match&quot;s data not found
+            Match&apos;s data not found
           </div>
         );
       case 'proPlayers':
-        // eslint-disable-next-line no-case-declarations
-        const index2 = detailsData.findIndex(
-          (object) => object.account_id === Number(detailsItemID),
-        );
-        if (index2 !== -1) return <ProPlayerProfile data={detailsData[index2]} />;
+        if (detailsData && detailsData.length > 0) {
+          const index2 = detailsData.findIndex(
+            (object) => object.account_id === Number(detailsItemID),
+          );
+          if (index2 !== -1) {
+            return <ProPlayerProfile data={detailsData[index2]} />;
+          }
+        }
         return (
           <div className="error-fetch">
             Something went wrong!
             <br />
-            Player&quot;s data not found
+            Player&apos;s data not found
           </div>
         );
       default:
