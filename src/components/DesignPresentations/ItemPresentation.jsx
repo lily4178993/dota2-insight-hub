@@ -4,43 +4,53 @@ import './itemPresentation.css';
 
 const ItemPresentation = ({ data }) => (
   <div className="item-presentation">
-    <div className="item-image">
-      <img src={data.img} alt={data.dname} />
-    </div>
     <div className="item-details">
-      <h2>{data.dname}</h2>
+      <h2>Overview</h2>
       <p>
-        <strong>Usage:</strong>
+        <strong>Name:</strong>
         {' '}
-        {data.hint[0]}
+        {data.dname}
       </p>
       <p>
-        <strong>Cost:</strong>
+        <strong>Type:</strong>
         {' '}
-        {data.cost}
-        {' '}
-        Gold
-      </p>
-      <p>
-        <strong>Special Notes:</strong>
-        {' '}
-        {data.notes}
+        {data?.qual}
       </p>
       <p>
         <strong>Mana Cost:</strong>
         {' '}
-        {data.mc ? 'Yes' : 'No'}
+        {data?.mc ? 'Yes' : 'No'}
+      </p>
+      <p>
+        <strong>Cost:</strong>
+        {' '}
+        {data?.cost}
+        {' '}
+        Gold
       </p>
       <p>
         <strong>Cooldown:</strong>
         {' '}
-        {data.cd ? `${data.cd} seconds` : 'N/A'}
+        {data?.cd ? `${data?.cd} seconds` : 'N/A'}
       </p>
+      <div className="item-image">
+        <strong>Item Image:</strong>
+        <br />
+        <img src={`https://api.opendota.com${data?.img}`} alt={data?.dname} />
+      </div>
       <p>
         <strong>Lore:</strong>
-        {' '}
-        {data.lore}
+        {' "'}
+        {data?.lore}
+        {'" '}
       </p>
+      <p>
+        <strong>Usage:</strong>
+        {' '}
+        {data?.hint[0]}
+      </p>
+      <h3>Special Notes:</h3>
+      <p>{data?.notes}</p>
     </div>
   </div>
 );
@@ -49,6 +59,7 @@ ItemPresentation.propTypes = {
   data: PropTypes.shape({
     img: PropTypes.string.isRequired,
     dname: PropTypes.string.isRequired,
+    qual: PropTypes.string.isRequired,
     lore: PropTypes.string.isRequired,
     notes: PropTypes.string.isRequired,
     cost: PropTypes.number.isRequired,
