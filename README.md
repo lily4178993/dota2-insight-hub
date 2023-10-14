@@ -40,7 +40,7 @@ Welcome to the Dota 2 Insight Hub, your one-stop destination for comprehensive d
 
 ## 📹 Video Presentation <a name="video-presentation"></a>
 
-[![Watch the Video Presentation](https://example.com/video-thumbnail.png)](https://example.com/video-link)
+<a href="https://www.canva.com/design/DAFxQWWOJaU/x1dhAgLHpCRCSj87YjXV4g/watch?utm_content=DAFxQWWOJaU&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink"><img src="./app-logo.png" alt="App logo" width="100" height="100"></a>
 
 Check out our video presentation to get a quick overview of this project.
 
