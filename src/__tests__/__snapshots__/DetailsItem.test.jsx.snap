@@ -1,0 +1,188 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home component snapshot 1`] = `
+<DocumentFragment>
+  <section>
+    <div
+      class="header-filter-box"
+    >
+      <span>
+        Choose a Card
+      </span>
+      <button
+        title="Filter"
+        type="button"
+      >
+        Filter 
+        <i
+          class="bx bx-down-arrow-circle"
+          style="transform: rotate(0deg);"
+        />
+      </button>
+      <div
+        class="filter-box"
+        style="right: -100%;"
+      >
+        <ul>
+          <li>
+            <button
+              title="Filter by Names"
+              type="button"
+            >
+              Names
+            </button>
+          </li>
+          <li>
+            <button
+              title="Filter by Counts"
+              type="button"
+            >
+              Counts
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="home-container"
+    >
+      <a
+        href="/details/heroes"
+      >
+        <div
+          class="card-container"
+        >
+          <button
+            title="More details"
+            type="button"
+          >
+            <i
+              class="bx bx-right-arrow-circle"
+            />
+          </button>
+          <div
+            class="card-image"
+          >
+            <img
+              alt="Heroes"
+              src="angelSword.png"
+            />
+          </div>
+          <div
+            class="card-content"
+          >
+            <h2>
+              Heroes
+            </h2>
+            <span>
+              0
+            </span>
+          </div>
+        </div>
+      </a>
+      <a
+        href="/details/items"
+      >
+        <div
+          class="card-container"
+        >
+          <button
+            title="More details"
+            type="button"
+          >
+            <i
+              class="bx bx-right-arrow-circle"
+            />
+          </button>
+          <div
+            class="card-image"
+          >
+            <img
+              alt="Items"
+              src="hammer.png"
+            />
+          </div>
+          <div
+            class="card-content"
+          >
+            <h2>
+              Items
+            </h2>
+            <span>
+              0
+            </span>
+          </div>
+        </div>
+      </a>
+      <a
+        href="/details/proMatches"
+      >
+        <div
+          class="card-container"
+        >
+          <button
+            title="More details"
+            type="button"
+          >
+            <i
+              class="bx bx-right-arrow-circle"
+            />
+          </button>
+          <div
+            class="card-image"
+          >
+            <img
+              alt="Pro Matches"
+              src="trophy.png"
+            />
+          </div>
+          <div
+            class="card-content"
+          >
+            <h2>
+              Pro Matches
+            </h2>
+            <span>
+              0
+            </span>
+          </div>
+        </div>
+      </a>
+      <a
+        href="/details/proPlayers"
+      >
+        <div
+          class="card-container"
+        >
+          <button
+            title="More details"
+            type="button"
+          >
+            <i
+              class="bx bx-right-arrow-circle"
+            />
+          </button>
+          <div
+            class="card-image"
+          >
+            <img
+              alt="Pro Players"
+              src="gamepad.png"
+            />
+          </div>
+          <div
+            class="card-content"
+          >
+            <h2>
+              Pro Players
+            </h2>
+            <span>
+              0
+            </span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+</DocumentFragment>
+`;

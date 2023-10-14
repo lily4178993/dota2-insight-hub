@@ -7,6 +7,7 @@ import {
   MatchInfo,
   ProPlayerProfile,
 } from '../../components';
+import './detailsItem.css';
 
 const DetailsItem = () => {
   const { detailsItemID } = useParams();
@@ -31,9 +32,9 @@ const DetailsItem = () => {
     switch (detailsListName) {
       case 'heroes':
         return detailsData[detailsItemID] ? (
-          <HeroInfo data={detailsData[detailsItemID]} />
+          <HeroInfo data={detailsData[detailsItemID - 1]} />
         ) : (
-          <div>
+          <div className="error-fetch">
             Something went wrong!
             <br />
             Hero&quot;s data not found
@@ -45,7 +46,7 @@ const DetailsItem = () => {
         return selectedItem ? (
           <ItemPresentation data={selectedItem} />
         ) : (
-          <div>
+          <div className="error-fetch">
             Something went wrong!
             <br />
             Item&quot;s data not found
@@ -56,7 +57,7 @@ const DetailsItem = () => {
         const index = detailsData.findIndex((object) => object.match_id === Number(detailsItemID));
         if (index !== -1) return <MatchInfo data={detailsData[index]} />;
         return (
-          <div>
+          <div className="error-fetch">
             Something went wrong!
             <br />
             Match&quot;s data not found
@@ -69,7 +70,7 @@ const DetailsItem = () => {
         );
         if (index2 !== -1) return <ProPlayerProfile data={detailsData[index2]} />;
         return (
-          <div>
+          <div className="error-fetch">
             Something went wrong!
             <br />
             Player&quot;s data not found
@@ -77,7 +78,7 @@ const DetailsItem = () => {
         );
       default:
         return (
-          <div>
+          <div className="error-fetch">
             Something went wrong!
             <br />
             Details not found
