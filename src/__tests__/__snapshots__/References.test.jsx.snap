@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`References component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="references-container"
+  >
+    <h2>
+      References
+    </h2>
+    <ul
+      class="references-list"
+    >
+      <li
+        class="reference-item"
+      >
+        <h3>
+          Dota 2 API
+        </h3>
+        <p>
+          Official API for Dota 2 game data.
+        </p>
+        <a
+          href="https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/API"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/API
+        </a>
+      </li>
+      <li
+        class="reference-item"
+      >
+        <h3>
+          React.js
+        </h3>
+        <p>
+          JavaScript library for building user interfaces.
+        </p>
+        <a
+          href="https://reactjs.org"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          https://reactjs.org
+        </a>
+      </li>
+      <li
+        class="reference-item"
+      >
+        <h3>
+          Redux Toolkit
+        </h3>
+        <p>
+          State management library for React applications.
+        </p>
+        <a
+          href="https://redux-toolkit.js.org"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          https://redux-toolkit.js.org
+        </a>
+      </li>
+      <li
+        class="reference-item"
+      >
+        <h3>
+          OpenAI GPT-3.5
+        </h3>
+        <p>
+          Natural language processing AI model developed by OpenAI.
+        </p>
+        <a
+          href="https://openai.com/gpt-3"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          https://openai.com/gpt-3
+        </a>
+      </li>
+      <li
+        class="reference-item"
+      >
+        <h3>
+          Codegrid React Navigation Menu Tutorial
+        </h3>
+        <p>
+          Tutorial on implementing navigation menu and styles in React.
+        </p>
+        <a
+          href="https://youtu.be/YAjENHeD2TM"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          https://youtu.be/YAjENHeD2TM
+        </a>
+      </li>
+      <li
+        class="reference-item"
+      >
+        <h3>
+          Icons8
+        </h3>
+        <p>
+          Provider of the application favicon.
+        </p>
+        <a
+          href="https://icons8.com"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          https://icons8.com
+        </a>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
