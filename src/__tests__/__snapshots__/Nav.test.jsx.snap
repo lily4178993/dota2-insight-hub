@@ -1,0 +1,260 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav component matches snapshot 1`] = `
+<nav
+  className="nav"
+>
+  <div
+    className="nav-container"
+  >
+    <div
+      className="navbar"
+      style={
+        Object {
+          "background": "var(--color-blue-4)",
+        }
+      }
+    >
+      <button
+        className="menu-toggle"
+        onClick={[Function]}
+        title="menu"
+        type="button"
+      >
+        <div
+          className="hamBox"
+        >
+          <span
+            className="lineTop"
+          >
+             
+          </span>
+          <span
+            className="lineBottom"
+          >
+             
+          </span>
+        </div>
+      </button>
+      <div
+        className="nav-settings"
+      >
+        <i
+          className="bx bx-microphone"
+        />
+        <i
+          className="bx bx-cog"
+        />
+      </div>
+    </div>
+    <div
+      className="nav-overlay"
+      style={
+        Object {
+          "top": "-100%",
+          "transitionDelay": "0s",
+        }
+      }
+    >
+      <ul
+        className="nav-links"
+      >
+        <li
+          className="nav-item"
+        >
+          <a
+            aria-label="Home"
+            href="/"
+            onClick={[Function]}
+            rel="noopener noreferrer"
+            style={
+              Object {
+                "top": "120px",
+                "transitionDelay": "0s",
+              }
+            }
+          >
+            Home
+          </a>
+          <div
+            className="nav-item-wrapper"
+          >
+             
+          </div>
+        </li>
+        <li
+          className="nav-item"
+        >
+          <a
+            aria-label="Heroes"
+            href="/details/heroes"
+            onClick={[Function]}
+            rel="noopener noreferrer"
+            style={
+              Object {
+                "top": "120px",
+                "transitionDelay": "0s",
+              }
+            }
+          >
+            Heroes
+          </a>
+          <div
+            className="nav-item-wrapper"
+          >
+             
+          </div>
+        </li>
+        <li
+          className="nav-item"
+        >
+          <a
+            aria-label="Home"
+            href="/details/items"
+            onClick={[Function]}
+            rel="noopener noreferrer"
+            style={
+              Object {
+                "top": "120px",
+                "transitionDelay": "0s",
+              }
+            }
+          >
+            Items
+          </a>
+          <div
+            className="nav-item-wrapper"
+          >
+             
+          </div>
+        </li>
+        <li
+          className="nav-item"
+        >
+          <a
+            aria-label="Pro Matches"
+            href="/details/proMatches"
+            onClick={[Function]}
+            rel="noopener noreferrer"
+            style={
+              Object {
+                "top": "120px",
+                "transitionDelay": "0s",
+              }
+            }
+          >
+            Pro Matches
+          </a>
+          <div
+            className="nav-item-wrapper"
+          >
+             
+          </div>
+        </li>
+        <li
+          className="nav-item"
+        >
+          <a
+            aria-label="Pro Players"
+            href="/details/proPlayers"
+            onClick={[Function]}
+            rel="noopener noreferrer"
+            style={
+              Object {
+                "top": "120px",
+                "transitionDelay": "0s",
+              }
+            }
+          >
+            Pro Players
+          </a>
+          <div
+            className="nav-item-wrapper"
+          >
+             
+          </div>
+        </li>
+      </ul>
+      <div
+        className="nav-footer"
+      >
+        <div
+          className="dev-infos"
+        >
+          <a
+            aria-label="About Me"
+            href="/aboutme"
+            onClick={[Function]}
+            rel="noopener noreferrer"
+            style={
+              Object {
+                "opacity": "0",
+                "top": "-20px",
+                "transitionDelay": "0s",
+              }
+            }
+          >
+            About Me
+          </a>
+          <a
+            aria-label="References"
+            href="/references"
+            onClick={[Function]}
+            rel="noopener noreferrer"
+            style={
+              Object {
+                "opacity": "0",
+                "top": "-20px",
+                "transitionDelay": "0s",
+              }
+            }
+          >
+            References
+          </a>
+        </div>
+        <div
+          className="nav-social-media"
+        >
+          <ul>
+            <li>
+              <a
+                aria-label="GitHub page"
+                href="https://github.com/lily4178993/dota2-insight-hub.git"
+                onClick={[Function]}
+                rel="noreferrer"
+                style={
+                  Object {
+                    "opacity": "0",
+                    "top": "-20px",
+                    "transitionDelay": "0s",
+                  }
+                }
+                target="_blank"
+              >
+                Github
+              </a>
+            </li>
+            <li>
+              <a
+                aria-label="LinkedIn page"
+                href="#LinkedIn"
+                onClick={[Function]}
+                rel="noreferrer"
+                style={
+                  Object {
+                    "opacity": "0",
+                    "top": "-20px",
+                    "transitionDelay": "0s",
+                  }
+                }
+              >
+                LinkedIn
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+`;
