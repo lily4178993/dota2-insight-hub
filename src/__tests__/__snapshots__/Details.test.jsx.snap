@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Details component snapshot 1`] = `
+<DocumentFragment>
+  <section>
+    <div
+      class="header-filter-box"
+    >
+      <span>
+        Choose a Card
+      </span>
+      <button
+        title="Filter"
+        type="button"
+      >
+        Filter 
+        <i
+          class="bx bx-down-arrow-circle"
+          style="transform: rotate(0deg);"
+        />
+      </button>
+      <div
+        class="filter-box"
+        style="right: -100%;"
+      >
+        <ul>
+          <li>
+            <button
+              title="Filter by Names"
+              type="button"
+            >
+              Names
+            </button>
+          </li>
+          <li>
+            <button
+              title="Filter by Counts"
+              type="button"
+            >
+              Counts
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="detailsList-container"
+    >
+      Data not found
+    </div>
+  </section>
+</DocumentFragment>
+`;
