@@ -138,7 +138,7 @@ const Nav = () => {
             <div className="nav-footer">
               <div className="dev-infos">
                 <Link
-                  to="/"
+                  to="/aboutme"
                   rel="noopener noreferrer"
                   aria-label="About Me"
                   onClick={() => setIsNavOpen(!isNavOpen)}

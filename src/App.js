@@ -1,6 +1,8 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { Details, DetailsItem, Home } from './pages';
+import {
+  AboutMe, Details, DetailsItem, Home,
+} from './pages';
 import { Header } from './components';
 
 const App = () => (
@@ -24,6 +26,10 @@ const App = () => (
         <Route
           path="/details/:detailsListName/:detailsItemID"
           element={<DetailsItem />}
+        />
+        <Route
+          path="/aboutme"
+          element={<AboutMe />}
         />
       </Routes>
     </main>
