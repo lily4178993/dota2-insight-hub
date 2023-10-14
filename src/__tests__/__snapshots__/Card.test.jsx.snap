@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card component renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="card-container"
+  >
+    <button
+      title="More details"
+      type="button"
+    >
+      <i
+        class="bx bx-right-arrow-circle"
+      />
+    </button>
+    <div
+      class="card-image"
+    >
+      <img
+        alt="Sample Card"
+        src="image.jpg"
+      />
+    </div>
+    <div
+      class="card-content"
+    >
+      <h2>
+        Sample Card
+      </h2>
+      <span>
+        42
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Card component renders with parser image correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="card-container"
+  >
+    <button
+      title="More details"
+      type="button"
+    >
+      <i
+        class="bx bx-right-arrow-circle"
+      />
+    </button>
+    <div
+      class="card-image"
+    >
+      <img
+        alt="Sample Card"
+        src="https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/image.jpg.png"
+      />
+    </div>
+    <div
+      class="card-content"
+    >
+      <h2>
+        Sample Card
+      </h2>
+      <span>
+        42
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Filter component matches snapshot 1`] = `
+<div>
+  <div
+    class="header-filter-box"
+  >
+    <span>
+      Choose a Card
+    </span>
+    <button
+      title="Filter"
+      type="button"
+    >
+      Filter By
+       
+      <i
+        class="bx bx-down-arrow-circle"
+        style="transform: rotate(180deg);"
+      />
+    </button>
+    <div
+      class="filter-box"
+      style="right: 1em;"
+    >
+      <ul>
+        <li>
+          <button
+            title="Filter by Names"
+            type="button"
+          >
+            Names
+          </button>
+        </li>
+        <li>
+          <button
+            title="Filter by Counts"
+            type="button"
+          >
+            Counts
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Filter component matches snapshot 2`] = `
+<div>
+  <div
+    class="header-filter-box"
+  >
+    <span>
+      Choose a Card
+    </span>
+    <button
+      title="Filter"
+      type="button"
+    >
+      Filter
+       
+      <i
+        class="bx bx-down-arrow-circle"
+        style="transform: rotate(0deg);"
+      />
+    </button>
+    <div
+      class="filter-box"
+      style="right: -100%;"
+    >
+      <ul>
+        <li>
+          <button
+            title="Filter by Names"
+            type="button"
+          >
+            Names
+          </button>
+        </li>
+        <li>
+          <button
+            title="Filter by Counts"
+            type="button"
+          >
+            Counts
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Filter component matches snapshot 3`] = `
+<div>
+  <div
+    class="header-filter-box"
+  >
+    <span>
+      Choose a Card
+    </span>
+    <button
+      title="Filter"
+      type="button"
+    >
+      Filter
+       
+      <i
+        class="bx bx-down-arrow-circle"
+        style="transform: rotate(0deg);"
+      />
+    </button>
+    <div
+      class="filter-box"
+      style="right: -100%;"
+    >
+      <ul>
+        <li>
+          <button
+            title="Filter by Names"
+            type="button"
+          >
+            Names
+          </button>
+        </li>
+        <li>
+          <button
+            title="Filter by Counts"
+            type="button"
+          >
+            Counts
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

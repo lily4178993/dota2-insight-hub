@@ -1,0 +1,31 @@
+.header-filter-box {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em 2em;
+  text-transform: uppercase;
+  font-family: var(--font-family-2);
+  background: var(--color-blue-4);
+}
+
+.header-filter-box button {
+  font-family: var(--font-family-2);
+  font-size: 0.8em;
+}
+
+.header-filter-box button i {
+  vertical-align: bottom;
+  font-size: 1rem;
+  transition: transform 0.9s ease;
+}
+
+.filter-box {
+  position: absolute;
+  bottom: 100%;
+  right: 1em;
+  padding: 0.2em 1.5em;
+  text-align: right;
+  background: var(--color-blue-4);
+  z-index: 1;
+  transition: all 500ms ease-in-out;
+}
