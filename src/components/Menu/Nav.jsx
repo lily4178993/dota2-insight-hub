@@ -151,7 +151,7 @@ const Nav = () => {
                   About Me
                 </Link>
                 <Link
-                  to="/"
+                  to="/references"
                   rel="noopener noreferrer"
                   aria-label="References"
                   onClick={() => setIsNavOpen(!isNavOpen)}
@@ -168,8 +168,10 @@ const Nav = () => {
                 <ul>
                   <li>
                     <a
-                      href="#Github"
+                      href="https://github.com/lily4178993/dota2-insight-hub.git"
+                      rel="noreferrer"
                       target="_blank"
+                      aria-label="GitHub page"
                       onClick={() => setIsNavOpen(!isNavOpen)}
                       style={{
                         top: isNavOpen ? '0' : '-20px',
@@ -182,8 +184,9 @@ const Nav = () => {
                   </li>
                   <li>
                     <a
-                      href="#Twitter"
-                      target="_blank"
+                      href="#LinkedIn"
+                      rel="noreferrer"
+                      aria-label="LinkedIn page"
                       onClick={() => setIsNavOpen(!isNavOpen)}
                       style={{
                         top: isNavOpen ? '0' : '-20px',
@@ -191,7 +194,7 @@ const Nav = () => {
                         transitionDelay: isNavOpen ? '1.5s' : '0s',
                       }}
                     >
-                      Twitter
+                      LinkedIn
                     </a>
                   </li>
                 </ul>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import {
-  AboutMe, Details, DetailsItem, Home,
+  AboutMe, Details, DetailsItem, Home, References,
 } from './pages';
 import { Header } from './components';
 
@@ -30,6 +30,10 @@ const App = () => (
         <Route
           path="/aboutme"
           element={<AboutMe />}
+        />
+        <Route
+          path="/references"
+          element={<References />}
         />
       </Routes>
     </main>
