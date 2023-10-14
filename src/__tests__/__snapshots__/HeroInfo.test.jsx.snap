@@ -1,0 +1,248 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeroInfo component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="hero-info-container"
+  >
+    <div
+      class="hero-image"
+    >
+      <img
+        alt="Pudge"
+        src="https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/pudge.png.png"
+      />
+    </div>
+    <div
+      class="hero-info"
+    >
+      <h2>
+        Pudge - Basic Stats
+      </h2>
+      <div
+        class="hero-details"
+      >
+        <div
+          class="stats-category-container"
+        >
+          <div
+            class="stats-category"
+          >
+            <h3>
+              Attributes
+            </h3>
+            <ul>
+              <li>
+                <strong>
+                  Primary Attribute:
+                </strong>
+                 str
+              </li>
+              <li>
+                <strong>
+                  Strength:
+                </strong>
+                 25
+              </li>
+              <li>
+                <strong>
+                  Agility:
+                </strong>
+                 14
+              </li>
+              <li>
+                <strong>
+                  Intelligence:
+                </strong>
+                 14
+              </li>
+            </ul>
+          </div>
+          <div
+            class="stats-category"
+          >
+            <h3>
+              Health & Mana
+            </h3>
+            <ul>
+              <li>
+                <strong>
+                  Base Health:
+                </strong>
+                 600
+              </li>
+              <li>
+                <strong>
+                  Base Health Regeneration:
+                </strong>
+                 3.5
+              </li>
+              <li>
+                <strong>
+                  Base Mana:
+                </strong>
+                 300
+              </li>
+              <li>
+                <strong>
+                  Base Mana Regeneration:
+                </strong>
+                 1.5
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="stats-category-container"
+        >
+          <div
+            class="stats-category"
+          >
+            <h3>
+              Attack
+            </h3>
+            <ul>
+              <li>
+                <strong>
+                  Attack Type:
+                </strong>
+                 melee
+              </li>
+              <li>
+                <strong>
+                  Base Attack Damage:
+                </strong>
+                 50 - 70
+              </li>
+              <li>
+                <strong>
+                  Strength Gain:
+                </strong>
+                 3.2
+              </li>
+              <li>
+                <strong>
+                  Agility Gain:
+                </strong>
+                 1.5
+              </li>
+              <li>
+                <strong>
+                  Intelligence Gain:
+                </strong>
+                 1.5
+              </li>
+            </ul>
+          </div>
+          <div
+            class="stats-category"
+          >
+            <h3>
+              Combat
+            </h3>
+            <ul>
+              <li>
+                <strong>
+                  Attack Range:
+                </strong>
+                 150
+              </li>
+              <li>
+                <strong>
+                  Projectile Speed:
+                </strong>
+                 900
+              </li>
+              <li>
+                <strong>
+                  Attack Rate:
+                </strong>
+                 1.7
+              </li>
+              <li>
+                <strong>
+                  Base Attack Time:
+                </strong>
+                 1.7
+              </li>
+              <li>
+                <strong>
+                  Attack Point:
+                </strong>
+                 0.5
+              </li>
+            </ul>
+          </div>
+          <div
+            class="stats-category"
+          >
+            <h3>
+              Movement & Vision
+            </h3>
+            <ul>
+              <li>
+                <strong>
+                  Move Speed:
+                </strong>
+                 285
+              </li>
+              <li>
+                <strong>
+                  Day Vision:
+                </strong>
+                 1800
+              </li>
+              <li>
+                <strong>
+                  Night Vision:
+                </strong>
+                 800
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="stats-category-container"
+        >
+          <div
+            class="stats-category"
+          >
+            <h3>
+              Turbo Mode
+            </h3>
+            <ul>
+              <li>
+                <strong>
+                  Turbo Picks:
+                </strong>
+                 0 Picks in Turbo mode this month
+              </li>
+              <li>
+                <strong>
+                  Turbo Wins:
+                </strong>
+                 0 Wins in Turbo mode this month
+              </li>
+            </ul>
+          </div>
+          <div
+            class="stats-category"
+          >
+            <h3>
+              Professional Play
+            </h3>
+            <ul>
+              <li>
+                <strong>
+                  Pro Pick:
+                </strong>
+                 200
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
