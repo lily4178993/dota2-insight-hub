@@ -1,7 +1,9 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { Details, DetailsItem, Home } from './pages';
-import { Header } from './components';
+import {
+  AboutMe, Details, DetailsItem, Home, References,
+} from './pages';
+import { Footer, Header } from './components';
 
 const App = () => (
   <>
@@ -25,8 +27,17 @@ const App = () => (
           path="/details/:detailsListName/:detailsItemID"
           element={<DetailsItem />}
         />
+        <Route
+          path="/aboutme"
+          element={<AboutMe />}
+        />
+        <Route
+          path="/references"
+          element={<References />}
+        />
       </Routes>
     </main>
+    <Footer />
   </>
 );
 

@@ -29,32 +29,32 @@ const Details = () => {
     switch (detailsListName) {
       case 'heroes':
         return {
-          cardImage: `https://api.opendota.com${data.img}`,
-          cardTitle: data.localized_name,
-          cardCount: data.base_str,
+          cardImage: `https://api.opendota.com${data?.img}`,
+          cardTitle: data?.localized_name,
+          cardCount: data?.base_str,
           isParser: true,
-          dataKey: data.hero_id,
+          dataKey: data?.hero_id,
         };
       case 'items':
         return {
-          cardImage: `https://api.opendota.com${data.img}`,
-          cardTitle: data.dname,
-          cardCount: data.cost,
-          dataKey: data.key,
+          cardImage: `https://api.opendota.com${data?.img}`,
+          cardTitle: data?.dname,
+          cardCount: data?.cost,
+          dataKey: data?.key,
         };
       case 'proMatches':
         return {
           cardImage: matchesImage,
-          cardTitle: data.dire_name,
-          cardCount: data.dire_score,
-          dataKey: data.match_id,
+          cardTitle: data?.dire_name,
+          cardCount: data?.dire_score,
+          dataKey: data?.match_id,
         };
       case 'proPlayers':
         return {
-          cardImage: data.avatarmedium,
-          cardTitle: data.personaname,
-          cardCount: data.account_id,
-          dataKey: data.account_id,
+          cardImage: data?.avatarmedium,
+          cardTitle: data?.personaname,
+          cardCount: data?.account_id,
+          dataKey: data?.account_id,
         };
       default:
         return null;
@@ -87,12 +87,12 @@ const Details = () => {
             }
 
             return (
-              <Link to={`/details/${detailsListName}/${data.dataKey}`} key={data.dataKey}>
+              <Link to={`/details/${detailsListName}/${data?.dataKey}`} key={data?.dataKey}>
                 <Card
-                  cardImage={data.cardImage}
+                  cardImage={data?.cardImage}
                   cardTitle={data?.cardTitle}
-                  cardCount={data.cardCount}
-                  isParser={data.isParser}
+                  cardCount={data?.cardCount}
+                  isParser={data?.isParser}
                 />
               </Link>
             );
