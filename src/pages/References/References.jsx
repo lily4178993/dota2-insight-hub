@@ -33,6 +33,11 @@ const References = () => {
       description: 'Provider of the application favicon.',
       link: 'https://icons8.com',
     },
+    {
+      name: 'Nelson Sakwa',
+      description: 'Provider of the application original design idea.',
+      link: 'https://www.behance.net/sakwadesignstudio',
+    },
   ];
 
   return (
