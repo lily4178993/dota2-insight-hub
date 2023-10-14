@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ItemPresentation component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="item-presentation"
+  >
+    <div
+      class="item-details"
+    >
+      <h2>
+        Overview
+      </h2>
+      <p>
+        <strong>
+          Name:
+        </strong>
+         Sample Item
+      </p>
+      <p>
+        <strong>
+          Type:
+        </strong>
+         Sample Quality
+      </p>
+      <p>
+        <strong>
+          Mana Cost:
+        </strong>
+         Yes
+      </p>
+      <p>
+        <strong>
+          Cost:
+        </strong>
+         100 Gold
+      </p>
+      <p>
+        <strong>
+          Cooldown:
+        </strong>
+         30 seconds
+      </p>
+      <div
+        class="item-image"
+      >
+        <strong>
+          Item Image:
+        </strong>
+        <br />
+        <img
+          alt="Sample Item"
+          src="https://api.opendota.com/sample-image.png"
+        />
+      </div>
+      <p>
+        <strong>
+          Lore:
+        </strong>
+         "Sample Lore" 
+      </p>
+      <p>
+        <strong>
+          Usage:
+        </strong>
+         Hint 1
+      </p>
+      <h3>
+        Special Notes:
+      </h3>
+      <p>
+        Sample Notes
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
