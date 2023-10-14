@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MatchInfo component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="match-info"
+  >
+    <div
+      class="match-image"
+    >
+      <img
+        alt="trophy icon"
+        src="trophy.png"
+      />
+      <p>
+        <strong>
+          ID:
+        </strong>
+         12345
+      </p>
+    </div>
+    <div>
+      <h2>
+        Match Details
+      </h2>
+      <ul>
+        <li>
+          <strong>
+            Duration:
+          </strong>
+           1800 seconds
+        </li>
+        <li>
+          <strong>
+            Start Time:
+          </strong>
+           13/10/2021 10:00:00
+        </li>
+        <li>
+          <strong>
+            League:
+          </strong>
+           Sample League
+        </li>
+        <li>
+          <strong>
+            Radiant Team:
+          </strong>
+           Radiant Team
+        </li>
+        <li>
+          <strong>
+            Dire Team:
+          </strong>
+           Dire Team
+        </li>
+        <li>
+          <strong>
+            Radiant Score:
+          </strong>
+           25
+        </li>
+        <li>
+          <strong>
+            Dire Score:
+          </strong>
+           20
+        </li>
+      </ul>
+    </div>
+  </div>
+</DocumentFragment>
+`;

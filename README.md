@@ -1,70 +1,347 @@
-# Getting Started with Create React App
+<a name="readme-top"></a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
+  <img src="./app-logo.png" alt="App logo">
+  <h1><b>Dota2 Insight Hub</b></h1>
 
-## Available Scripts
+</div>
 
-In the project directory, you can run:
+<!-- TABLE OF CONTENTS -->
 
-### `npm start`
+# 📗 Table of Contents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [📖 About the Project](#about-project)
+  - [📹 Video Presentation](#video-presentation)
+  - [🛠 Built With](#built-with)
+    - [Tech Stack](#tech-stack)
+    - [Key Features](#key-features)
+    - [🚀 Live Demo ](#-live-demo-)
+- [💻 Getting Started](#getting-started)
+  - [Setup](#setup)
+  - [Prerequisites](#prerequisites)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [Running tests](#running-tests)
+  - [Deployment](#deployment)
+- [👥 Author](#authors)
+- [🔭 Future Features](#future-features)
+- [🤝 Contributing](#contributing)
+- [⭐️ Show your support](#support)
+- [🙏 Acknowledgements](#acknowledgements)
+- [📝 License](#license)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<!-- PROJECT DESCRIPTION -->
 
-### `npm test`
+# 📖 Dota2 Insight Hub <a name="about-project"></a>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Dota 2 Insight Hub: Your Ultimate Resource for Dota 2 Game Data and Analysis
 
-### `npm run build`
+Welcome to the Dota 2 Insight Hub, your one-stop destination for comprehensive data, analysis, and insights into the world of Dota 2. Explore hero and item statistics, pro player profiles, and match details, all in one convenient location. Whether you're a competitive gamer, a Dota 2 enthusiast, or a data-driven strategist, our hub provides the tools and information you need to elevate your gameplay and understanding of this iconic MOBA.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📹 Video Presentation <a name="video-presentation"></a>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+[![Watch the Video Presentation](https://example.com/video-thumbnail.png)](https://example.com/video-link)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Check out our video presentation to get a quick overview of this project.
 
-### `npm run eject`
+<p align="right">(<a href="#readme-top">Back to top</a>)</p>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🛠 Built With <a name="built-with">HTML5 , CSS3, REACT and REDUX</a>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 🛠 Tech Stack <a name="tech-stack"></a>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Dota 2 Insight Hub is built using a cutting-edge tech stack to provide a seamless and robust experience for Dota 2 players and enthusiasts. Our technology stack includes:
 
-## Learn More
+<details>
+  <summary>Frontend</summary>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  Dota 2 Insight Hub's frontend is built using a modern stack to provide a rich user experience. The key technologies used on the frontend include:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  - **React**: A JavaScript library for building user interfaces.
+  - **React Router**: Declarative routing for React applications.
+  - **Redux Toolkit**: A state management library for managing application state.
+  - **Axios**: A promise-based HTTP client for making API requests.
+  - **CSS**: Cascading Style Sheets for styling and layout.
 
-### Code Splitting
+  This stack ensures a responsive and interactive interface for our users.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+</details>
 
-### Analyzing the Bundle Size
+<details>
+  <summary>Backend</summary>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+  The backend of Dota 2 Insight Hub handles data retrieval and processing. Here are the main technologies and tools used on the backend:
 
-### Making a Progressive Web App
+  - **Node.js**: A JavaScript runtime for server-side applications.
+  - **Dota 2 API**: Official API for Dota 2 game data.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+</details>
 
-### Advanced Configuration
+<details>
+  <summary>Data Sources</summary>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+  To provide users with up-to-date information, we rely on various data sources:
+
+  - **OpenDota API**: Official API for Dota 2 game data.
+
+</details>
+
+<details>
+  <summary>Deployment</summary>
+
+  Dota 2 Insight Hub is deployed using Netlify, providing seamless and efficient hosting. Our deployment process includes:
+
+  - **Netlify**: Our hosting service for the application.
+  - **Continuous Deployment**: Automatic deployment with each code push.
+
+</details>
+
+<details>
+  <summary>Development Tools</summary>
+
+  Our development team uses various tools and software to create and maintain the project:
+
+  - **VS Code**: A popular code editor used by our developers.
+  - **Git & GitHub**: Version control and collaboration platform.
+  - Any other development tools and utilities employed in the project.
+
+</details>
+
+<!-- Features -->
+
+### Key Features <a name="key-features"></a>
+
+**Hero Insights**
+
+<details>
+<summary>Click to expand</summary>
+
+- **Summary**: Get detailed information about Dota 2 heroes, including their abilities, attributes, and roles. Learn the strengths and weaknesses of each hero.
+
+- **Details**: Dive deep into the world of Dota 2 heroes with comprehensive insights. Explore their abilities, base attributes, and roles in the game. Understand the strategic significance of each hero and make informed choices in your matches.
+
+</details>
+
+**Item Database**
+
+<details>
+<summary>Click to expand</summary>
+
+- **Summary**: Explore a comprehensive database of in-game items. Understand item effects, costs, and recommended usage for different situations.
+
+- **Details**: Access a vast collection of Dota 2 in-game items. Discover their unique effects, costs, and recommended scenarios for purchase. Equip yourself with the knowledge needed to make the right item choices during matches.
+
+</details>
+
+**Pro Matches**
+<details>
+<summary>Click to expand</summary>
+
+- **Summary**: Stay up-to-date with the latest professional Dota 2 matches. Access match details, including teams, scores, and highlights.
+
+- **Details**: Keep yourself informed about the professional Dota 2 scene. Access details of the most recent matches, including participating teams, scores, and exciting highlights. Stay connected with the competitive side of Dota 2.
+
+</details>
+
+**Pro Players**
+
+<details>
+<summary>Click to expand</summary>
+
+- **Summary**: Get insights into your favorite pro players. View their profiles, career stats, and achievements.
+
+- **Details**: Connect with your favorite pro players. Explore their player profiles, career statistics, and notable achievements. Gain a deeper understanding of the personalities behind the in-game avatars.
+
+</details>
+
+**Search and Filters**
+
+<details>
+<summary>Click to expand</summary>
+
+- **Summary**: Easily find heroes, items, matches, and players with a powerful search engine and filtering options.
+
+- **Details**: Simplify your user experience with powerful search and filtering tools. Quickly locate heroes, items, matches, and players to access the specific information you need. Find relevant content effortlessly.
+
+</details>
+
+**User-Friendly Interface**
+
+<details>
+<summary>Click to expand</summary>
+
+- **Summary**: Enjoy a clean and responsive user interface designed for an optimal user experience.
+
+- **Details**: Navigate through Dota 2 Insight Hub with ease. Experience a user-friendly and responsive interface that ensures an optimal user experience, whether you're on a desktop computer or a mobile device.
+
+</details>
+
+**Performance Data**
+
+<details>
+<summary>Click to expand</summary>
+
+- **Summary**: View detailed statistics and performance metrics for each hero, item, and player in Dota 2.
+
+- **Details**: Access comprehensive statistics and performance data for every hero, item, and player in Dota 2. Analyze gameplay trends, identify strengths and weaknesses, and make data-driven decisions.
+
+</details>
+
+**Responsive Design**
+
+<details>
+<summary>Click to expand</summary>
+
+- **Summary**: Access the application on various devices, including mobile phones, tablets, and desktops.
+
+- **Details**: Enjoy the flexibility of using Dota 2 Insight Hub on multiple devices. Whether you're on a mobile phone, tablet, or desktop, the application's responsive design ensures a seamless experience.
+
+</details>
+
+**Deployment on Netlify**
+
+<details>
+<summary>Click to expand</summary>
+
+- **Summary**: Benefit from fast and reliable hosting, ensuring your insights are available at all times.
+
+- **Details**: Experience reliable and fast hosting with the deployment of Dota 2 Insight Hub on Netlify. Your insights and resources are accessible around the clock, ensuring a seamless user experience.
+
+</details>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LIVE DEMO -->
+
+## Live Demo
+
+Experience Dota 2 Insight Hub in action by exploring our live demo:
+
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://dota2insighthub.netlify.app/)
+
+- Discover Dota 2 hero insights.
+- Explore the item database.
+- Stay updated with professional matches.
+- Get to know your favorite pro players.
+- Search and filter to find the information you need.
+
+Feel free to interact with the application and see how it enhances your Dota 2 gaming experience. If you're interested in deploying your own instance of Dota 2 Insight Hub, follow the instructions in the [Deployment](#deployment) section below.
+
+
+<!-- GETTING STARTED -->
+
+## 💻 Getting Started <a name="getting-started"></a>
+
+To set up a local instance of this project, follow the steps provided below.
+
+### Prerequisites <a name="prerequisites"></a>
+
+Before running this project, ensure you have the following tools installed on your system:
+
+- [Node.js](https://nodejs.org/)
+- [Git](https://git-scm.com/)
+- A code editor of your choice
+
+### Setup <a name="setup"></a>
+
+1. Click the "Code" button (usually in green) at the top of this repository.
+2. Copy the URL.
+3. Clone the repository by running the following command in your terminal:
+
+   ```bash
+   git clone https://github.com/lily4178993/dota2-insight-hub.git
+   ```
+
+- Click Code button (shown in green color)
+- Copy URL.
+- Please clone it with the following command: git clone (your copied URL)
+
+### Install <a name="install"></a>
+
+Install the project's dependencies with:
+
+```bash
+  npm install
+```
+
+### Usage <a name="usage"></a>
+
+To start the project, use the following command:
+
+```bash
+  npm start
+```
+
+### Running tests  <a name="running-tests"></a>
+
+Execute tests with the following command:
+
+```bash
+  npm test
+```
 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+You can deploy this project using various hosting platforms or services, such as [Netlify](https://www.netlify.com/) or [GitHub Pages](https://pages.github.com/).
 
-### `npm run build` fails to minify
+Enjoy exploring the Dota2 Insight Hub!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 👥 Author <a name="authors"></a>
+
+Meet the author behind the Dota2 Insight Hub project:
+
+👤 **Nelly Telli**
+
+- GitHub: [@lily4178993](https://github.com/lily4178993)
+- LinkedIn: [Nelly's LinkedIn](https://www.linkedin.com/in/nellytelli/)
+
+<p align="right">(<a href="#readme-top">Back to top</a>)</p>
+
+<!-- FUTURE FEATURES -->
+
+## 🔭 Future Features <a name="future-features"></a>
+
+Stay tuned for exciting future features and enhancements to make Dota2 Insight Hub even more powerful!
+
+<p align="right">(<a href="#readme-top">Back to top</a>)</p>
+
+## 🤝 Contributing <a name="contributing"></a>
+
+Feel free to contribute, report issues, or make feature requests – your input is appreciated!
+
+- Check the [issues page](https://github.com/lily4178993/dota2-insight-hub/issues) for ongoing tasks and discussions.
+
+<p align="right">(<a href="#readme-top">Back to top</a>)</p>
+
+<!-- SUPPORT -->
+
+## ⭐️ Show your support <a name="support"></a>
+
+If you appreciate this project, please consider giving it a ⭐️ on GitHub.
+
+<p align="right">(<a href="#readme-top">Back to top</a>)</p>
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+We would like to express our sincere thanks to the following individuals and resources that contributed to this project:
+
+- [Dota 2 API](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/API): Official API for Dota 2 game data.
+- [React.js](https://reactjs.org): JavaScript library for building user interfaces.
+- [Redux Toolkit](https://redux-toolkit.js.org): State management library for React applications.
+- [OpenAI GPT-3.5](https://openai.com/gpt-3): Natural language processing AI model developed by OpenAI.
+- [Codegrid React Navigation Menu Tutorial](https://youtu.be/YAjENHeD2TM): Tutorial on implementing navigation menu and styles in React.
+- [Icons8](https://icons8.com): Provider of the application favicon.
+- [Nelson Sakwa](https://www.behance.net/sakwadesignstudio): Provider of the application original design idea.
+
+Your support and these valuable resources have been instrumental in the development of this project.
+
+<p align="right">(<a href="#readme-top">Back to top</a>)</p>
+
+## 📝 License <a name="license"></a>
+
+This project is licensed under the [MIT License](./LICENSE).
+
+<p align="right">(<a href="#readme-top">Back to top</a>)</p>

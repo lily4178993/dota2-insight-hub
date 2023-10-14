@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AboutMe component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="about-me-container"
+  >
+    <h2
+      class="about-me-title"
+    >
+      About Me
+    </h2>
+    <div
+      class="about-me-content"
+    >
+      <p>
+        Hi there! My name is Nelly Telli, and I'm a software engineer with a passion for web development and problem-solving. I love building responsive web applications and creating clean, maintainable code.
+      </p>
+      <br />
+      <p>
+        My favorite quote is, 
+        <strong>
+          “The only way to do great work is to love what you do”
+        </strong>
+         by Steve Jobs. I strongly believe in the importance of loving your work and staying curious to keep learning and growing.
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;

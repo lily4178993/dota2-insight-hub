@@ -1,0 +1,215 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component renders correctly 1`] = `
+<div>
+  <header
+    class="header"
+  >
+    <nav
+      class="nav"
+    >
+      <div
+        class="nav-container"
+      >
+        <div
+          class="navbar"
+        >
+          <button
+            class="menu-toggle"
+            title="menu"
+            type="button"
+          >
+            <div
+              class="hamBox"
+            >
+              <span
+                class="lineTop"
+              >
+                 
+              </span>
+              <span
+                class="lineBottom"
+              >
+                 
+              </span>
+            </div>
+          </button>
+          <div
+            class="nav-settings"
+          >
+            <i
+              class="bx bx-microphone"
+            />
+            <i
+              class="bx bx-cog"
+            />
+          </div>
+        </div>
+        <div
+          class="nav-overlay"
+          style="top: -100%; transition-delay: 0s;"
+        >
+          <ul
+            class="nav-links"
+          >
+            <li
+              class="nav-item"
+            >
+              <a
+                aria-label="Home"
+                href="/"
+                rel="noopener noreferrer"
+                style="top: 120px; transition-delay: 0s;"
+              >
+                Home
+              </a>
+              <div
+                class="nav-item-wrapper"
+              >
+                 
+              </div>
+            </li>
+            <li
+              class="nav-item"
+            >
+              <a
+                aria-label="Heroes"
+                href="/details/heroes"
+                rel="noopener noreferrer"
+                style="top: 120px; transition-delay: 0s;"
+              >
+                Heroes
+              </a>
+              <div
+                class="nav-item-wrapper"
+              >
+                 
+              </div>
+            </li>
+            <li
+              class="nav-item"
+            >
+              <a
+                aria-label="Home"
+                href="/details/items"
+                rel="noopener noreferrer"
+                style="top: 120px; transition-delay: 0s;"
+              >
+                Items
+              </a>
+              <div
+                class="nav-item-wrapper"
+              >
+                 
+              </div>
+            </li>
+            <li
+              class="nav-item"
+            >
+              <a
+                aria-label="Pro Matches"
+                href="/details/proMatches"
+                rel="noopener noreferrer"
+                style="top: 120px; transition-delay: 0s;"
+              >
+                Pro Matches
+              </a>
+              <div
+                class="nav-item-wrapper"
+              >
+                 
+              </div>
+            </li>
+            <li
+              class="nav-item"
+            >
+              <a
+                aria-label="Pro Players"
+                href="/details/proPlayers"
+                rel="noopener noreferrer"
+                style="top: 120px; transition-delay: 0s;"
+              >
+                Pro Players
+              </a>
+              <div
+                class="nav-item-wrapper"
+              >
+                 
+              </div>
+            </li>
+          </ul>
+          <div
+            class="nav-footer"
+          >
+            <div
+              class="dev-infos"
+            >
+              <a
+                aria-label="About Me"
+                href="/aboutme"
+                rel="noopener noreferrer"
+                style="top: -20px; opacity: 0; transition-delay: 0s;"
+              >
+                About Me
+              </a>
+              <a
+                aria-label="References"
+                href="/references"
+                rel="noopener noreferrer"
+                style="top: -20px; opacity: 0; transition-delay: 0s;"
+              >
+                References
+              </a>
+            </div>
+            <div
+              class="nav-social-media"
+            >
+              <ul>
+                <li>
+                  <a
+                    aria-label="GitHub page"
+                    href="https://github.com/lily4178993/dota2-insight-hub.git"
+                    rel="noreferrer"
+                    style="top: -20px; opacity: 0; transition-delay: 0s;"
+                    target="_blank"
+                  >
+                    Github
+                  </a>
+                </li>
+                <li>
+                  <a
+                    aria-label="LinkedIn page"
+                    href="#LinkedIn"
+                    rel="noreferrer"
+                    style="top: -20px; opacity: 0; transition-delay: 0s;"
+                  >
+                    LinkedIn
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div
+      class="header-content"
+    >
+      <div
+        class="header-image-blurred-edge"
+      >
+         
+      </div>
+      <div
+        class="header-description"
+      >
+        <span
+          class="header-reference"
+        >
+           
+        </span>
+      </div>
+    </div>
+  </header>
+</div>
+`;

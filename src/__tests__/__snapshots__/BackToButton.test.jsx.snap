@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BackToButton component matches snapshot 1`] = `
+<div
+  className="backButton"
+>
+  <button
+    type="button"
+  >
+    <i
+      className="bx bx-chevron-left"
+    />
+  </button>
+</div>
+`;

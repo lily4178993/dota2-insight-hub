@@ -23,6 +23,21 @@ const References = () => {
       description: 'Natural language processing AI model developed by OpenAI.',
       link: 'https://openai.com/gpt-3',
     },
+    {
+      name: 'Codegrid React Navigation Menu Tutorial',
+      description: 'Tutorial on implementing navigation menu and styles in React.',
+      link: 'https://youtu.be/YAjENHeD2TM',
+    },
+    {
+      name: 'Icons8',
+      description: 'Provider of the application favicon.',
+      link: 'https://icons8.com',
+    },
+    {
+      name: 'Nelson Sakwa',
+      description: 'Provider of the application original design idea.',
+      link: 'https://www.behance.net/sakwadesignstudio',
+    },
   ];
 
   return (
