@@ -32,12 +32,14 @@ const Card = ({
 
 Card.defaultProps = {
   isParser: false,
+  cardImage: PropTypes.string,
+  cardTitle: PropTypes.string,
 };
 
 Card.propTypes = {
   cardCount: PropTypes.number.isRequired,
-  cardImage: PropTypes.string.isRequired,
-  cardTitle: PropTypes.string.isRequired,
+  cardImage: PropTypes.string,
+  cardTitle: PropTypes.string,
   isParser: PropTypes.bool,
 };
 
