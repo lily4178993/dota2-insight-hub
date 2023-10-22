@@ -1,14 +1,10 @@
 .footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
   width: 100%;
   display: flex;
   justify-content: center;
   background: var(--color-blue-4);
   padding: 20px 0;
   text-align: center;
-  z-index: -1;
 }
 
 .footer-container {
