@@ -32,6 +32,7 @@ body {
 
 main {
   width: 100%;
+  min-height: 90vh;
 }
 
 button {
@@ -43,4 +44,7 @@ button {
   cursor: pointer;
 }
 
-#root { overflow: hidden; }
+#root {
+  overflow: hidden;
+  min-height: 100vh;
+}
