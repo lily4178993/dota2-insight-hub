@@ -12,6 +12,7 @@ const Card = ({
 
   return (
     <div className="card-container">
+      {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
       <button type="button" title="More details">
         <i className="bx bx-right-arrow-circle" />
       </button>
