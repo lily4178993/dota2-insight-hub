@@ -5,7 +5,7 @@ import { Card, Filter } from '../../components';
 import matchesImage from '../../assets/trophy.png';
 import './details.css';
 
-const Details = () => {
+function Details() {
   const { detailsListName } = useParams();
   const detailsData = useSelector((state) => {
     switch (detailsListName) {
@@ -103,5 +103,5 @@ const Details = () => {
       </div>
     </section>
   );
-};
+}
 export default Details;

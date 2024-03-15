@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './itemPresentation.css';
 
-const ItemPresentation = ({ data }) => {
+function ItemPresentation({ data }) {
   if (!data || data.length === 0) {
     return (
       <div className="error-fetch">
@@ -64,7 +64,7 @@ const ItemPresentation = ({ data }) => {
       </div>
     </div>
   );
-};
+}
 ItemPresentation.propTypes = {
   data: PropTypes.shape({
     img: PropTypes.string.isRequired,

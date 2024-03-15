@@ -1,7 +1,7 @@
 import React from 'react';
 import './references.css';
 
-const References = () => {
+function References() {
   const referencesList = [
     {
       name: 'Dota 2 API',
@@ -57,6 +57,6 @@ const References = () => {
       </ul>
     </div>
   );
-};
+}
 
 export default References;

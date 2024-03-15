@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './card.css';
 
-const Card = ({
+function Card({
   cardImage, cardTitle, cardCount, isParser,
-}) => {
+}) {
   const generatePosterlink = (imgUrl) => {
     const nameParam = imgUrl.split('/').pop().replace('.png?', '');
     return `https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/${nameParam}.png`;
@@ -29,7 +29,7 @@ const Card = ({
       </div>
     </div>
   );
-};
+}
 
 Card.defaultProps = {
   isParser: false,

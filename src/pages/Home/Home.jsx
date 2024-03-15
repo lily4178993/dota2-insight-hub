@@ -12,7 +12,7 @@ import matchesImage from '../../assets/trophy.png';
 import playersImage from '../../assets/gamepad.png';
 import './home.css';
 
-const Home = () => {
+function Home() {
   const { heroes, status: statusHeroes } = useSelector((state) => state.heroes);
   const { items, status: statusItems } = useSelector((state) => state.items);
   const { matches, status: statusMatches } = useSelector((state) => state.matches);
@@ -81,6 +81,6 @@ const Home = () => {
       </div>
     </section>
   );
-};
+}
 
 export default Home;

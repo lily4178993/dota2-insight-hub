@@ -9,7 +9,7 @@ import {
 } from '../../components';
 import './detailsItem.css';
 
-const DetailsItem = () => {
+function DetailsItem() {
   const { detailsItemID } = useParams();
   const location = useLocation();
   const detailsListName = location.pathname.split('/')[2];
@@ -99,6 +99,6 @@ const DetailsItem = () => {
   };
 
   return <section>{renderComponent()}</section>;
-};
+}
 
 export default DetailsItem;
