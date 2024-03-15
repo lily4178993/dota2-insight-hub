@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-
-const API_BASE_URL = 'https://api.opendota.com/api';
+import API_BASE_URL from '../config/constant';
 
 // Define an async thunk for fetching items data
 export const fetchItems = createAsyncThunk('items/fetchItems', async () => {
@@ -22,24 +21,25 @@ const itemsSlice = createSlice({
   name: 'items',
   initialState: {
     items: [],
-    status: 'idle',
+    loading: false,
     error: null,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchItems.pending, (state) => {
-        state.status = 'loading';
+        state.loading = true;
       })
       .addCase(fetchItems.fulfilled, (state, action) => {
-        state.status = 'succeeded';
+        state.loading = false;
         state.items = action.payload;
       })
       .addCase(fetchItems.rejected, (state, action) => {
-        state.status = 'failed';
+        state.loading = false;
         state.error = action.error.message;
       });
   },
 });
 
-export default itemsSlice.reducer;
+export const selectItemsState = (state) => state.items;
+export default itemsSlice;

@@ -38,7 +38,10 @@ Card.defaultProps = {
 };
 
 Card.propTypes = {
-  cardCount: PropTypes.number.isRequired,
+  cardCount: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]).isRequired,
   cardImage: PropTypes.string,
   cardTitle: PropTypes.string,
   isParser: PropTypes.bool,
