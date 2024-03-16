@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { Card, Filter } from '../../components';
+import { Card } from '../../components';
 import matchesImage from '../../assets/trophy.png';
 import './details.css';
+import generateHeroPosterlink from '../../utils/generateHeroPosterlink';
 
 function Details() {
   const { detailsListName } = useParams();
@@ -29,23 +30,22 @@ function Details() {
     switch (detailsListName) {
       case 'heroes':
         return {
-          cardImage: `https://api.opendota.com${data?.img}`,
+          cardImage: generateHeroPosterlink(`https://api.opendota.com${data?.img}`),
           cardTitle: data?.localized_name,
           cardCount: data?.base_str,
-          isParser: true,
-          dataKey: data?.hero_id,
+          dataKey: data?.id,
         };
       case 'items':
         return {
           cardImage: `https://api.opendota.com${data?.img}`,
           cardTitle: data?.dname,
-          cardCount: data?.cost,
+          cardCount: data?.cost || 'N/A',
           dataKey: data?.key,
         };
       case 'proMatches':
         return {
           cardImage: matchesImage,
-          cardTitle: data?.dire_name,
+          cardTitle: data?.dire_name || 'N/A',
           cardCount: data?.dire_score,
           dataKey: data?.match_id,
         };
@@ -61,38 +61,22 @@ function Details() {
     }
   };
 
-  const [filter, setFilter] = useState('Names');
-
-  // Define a function to filter and sort cards based on the chosen filter
-  const filteredAndSortedCards = () => {
-    // Filter cards based on the filter type
-    let filteredCards = [...detailsDataArray].map(mapDataProperties);
-
-    if (filter === 'Counts') {
-      // Sort the cards by Count in descending order
-      filteredCards = filteredCards.sort((a, b) => b.cardCount - a.cardCount);
-    }
-
-    return filteredCards;
-  };
-
   return (
     <section>
-      <Filter setFilter={setFilter} />
       <div className="detailsList-container">
         {detailsDataArray.length > 0 ? (
-          filteredAndSortedCards().map((data) => {
-            if (!data) {
+          detailsDataArray.map((data) => {
+            const mappedData = mapDataProperties(data);
+            if (!mappedData) {
               return null;
             }
 
             return (
-              <Link to={`/details/${detailsListName}/${data?.dataKey}`} key={data?.dataKey}>
+              <Link to={`/details/${detailsListName}/${mappedData.dataKey}`} key={mappedData.dataKey}>
                 <Card
-                  cardImage={data?.cardImage}
-                  cardTitle={data?.cardTitle}
-                  cardCount={data?.cardCount}
-                  isParser={data?.isParser}
+                  cardImage={mappedData.cardImage}
+                  cardTitle={mappedData.cardTitle}
+                  cardCount={mappedData.cardCount}
                 />
               </Link>
             );
