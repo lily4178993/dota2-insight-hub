@@ -51,27 +51,6 @@ function Home() {
     items.length,
   ]);
 
-  /* const [filter, setFilter] = useState('Names');
-
-  // Define a function to filter cards based on length
-  const filterCardsByLength = () => {
-    const data = [
-      { cardTitle: 'Heroes', cardImage: heroesImage, cardCount: heroes ? heroes.length : 0 },
-      { cardTitle: 'Items', cardImage: itemsImage, cardCount: items ? items.length : 0 },
-      { cardTitle: 'Pro Matches',
-      cardImage: matchesImage, cardCount: matches ? matches.length : 0 },
-      { cardTitle: 'Pro Players', cardImage:
-      playersImage, cardCount: players ? players.length : 0 },
-    ];
-
-    if (filter === 'Counts') {
-    // Sort the cards by length in descending order
-      return data.sort((a, b) => b.cardCount - a.cardCount);
-    }
-
-    return data;
-  };
- */
   const data = [
     {
       cardTitle: 'Heroes',
@@ -96,7 +75,6 @@ function Home() {
   ];
   return (
     <section>
-      {/* <Filter setFilter={setFilter} /> */}
       <div className="home-container">
         {data.map((cardData) => (
           <Link to={`/details/${urlSpaceChecker(`${cardData.cardTitle}`)}`} key={cardData.cardTitle}>
