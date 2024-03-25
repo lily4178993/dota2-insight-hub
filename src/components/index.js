@@ -6,4 +6,7 @@ export { default as HeroInfo } from './DesignPresentations/HeroInfo';
 export { default as ItemPresentation } from './DesignPresentations/ItemPresentation';
 export { default as MatchInfo } from './DesignPresentations/MatchInfo';
 export { default as ProPlayerProfile } from './DesignPresentations/ProPlayerProfile';
+export { default as GridViewToggle } from './ux/GridViewToggle';
 export { default as HeroCarousel } from './ux/HeroCarousel';
+export { default as HeroGrid } from './ux/HeroGrid';
+export { default as HeroList } from './ux/HeroList';

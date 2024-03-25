@@ -1,11 +1,34 @@
-import React from 'react';
-import { HeroCarousel } from '../../components';
-// Import other components and assets as needed
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { selectHeroesState } from '../../redux/slices';
+import {
+  GridViewToggle,
+  HeroCarousel,
+  HeroGrid,
+  HeroList,
+} from '../../components';
 
 function HeroesPage() {
+  const { detailsListName } = useParams();
+  const { heroes } = useSelector(selectHeroesState);
+  const [listViewOption, setListViewOption] = useState(false);
+
+  useEffect(() => {
+    const savedOption = localStorage.getItem('listViewOption');
+    if (savedOption !== null) {
+      setListViewOption(JSON.parse(savedOption));
+    }
+  }, []);
+
+  const handleViewOptionChange = (option) => {
+    setListViewOption(option);
+    localStorage.setItem('listViewOption', JSON.stringify(option));
+  };
+
   return (
     <div className="heroes-page-container">
-      <div className="w-full h-screen -mt-[6.25rem] bg-slate-950">
+      <div className="w-full min-h-screen -mt-5 pb-10 sm:pb-0 sm:h-screen bg-black">
         <HeroCarousel />
       </div>
       {/* Hero Search and Filter Panel */}
@@ -18,10 +41,23 @@ function HeroesPage() {
       </div>
 
       {/* Hero Grid or List */}
-      <section className="hero-grid-list" id="explore-heroes">
-        {/* This can toggle between a grid or list view, depending on user preference */}
-        {/* Each hero representation here should be clickable and lead to the
-        individual hero page */}
+      <section className="hero-grid-list pt-20 sm:pt-4 lg:pt-24 pb-20 bg-gradient-to-t from-black/50 to-black" id="explore-heroes">
+        <div className="text-center text-balance mb-8 lg:mb-10 px-2">
+          <h2 className="text-4xl md:text-5xl font-semibold mb-2">Explore the Heroes</h2>
+          <p className="text-2xl md:text-3xl">Browse, search, and find details on every hero in the Dota 2 universe.</p>
+        </div>
+        <GridViewToggle
+          listViewOption={listViewOption}
+          handleViewOptionChange={handleViewOptionChange}
+        />
+        <div className="min-h-96">
+          {!listViewOption && detailsListName === 'heroes' && (
+            <HeroGrid heroesData={heroes} />
+          )}
+          {listViewOption && detailsListName === 'heroes' && (
+            <HeroList heroesData={heroes} />
+          )}
+        </div>
       </section>
 
       {/* Individual Hero Page - Template (Consider making this a separate component) */}
