@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { IconGrid, IconList } from '../assets';
+import { IconGrid, IconList } from '../../assets';
 
 /*
   Component to toggle between Grid and List view
