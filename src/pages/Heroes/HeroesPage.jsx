@@ -3,18 +3,21 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { selectHeroesState } from '../../redux/slices';
 import {
+  FilterCheckboxesPanel,
   GridViewToggle,
   HeroCarousel,
   HeroGrid,
   HeroList,
   SearchPanel,
 } from '../../components';
+import { heroFilters } from '../../constants/constant';
 
 function HeroesPage() {
   const { detailsListName } = useParams();
   const { heroes } = useSelector(selectHeroesState);
   const [listViewOption, setListViewOption] = useState(false);
   const [filteredHeroes, setFilteredHeroes] = useState(heroes);
+  const [filters, setFilters] = useState(heroFilters);
 
   useEffect(() => {
     const savedOption = localStorage.getItem('listViewOption');
@@ -31,6 +34,11 @@ function HeroesPage() {
     const filtered = heroes.filter((hero) => hero
       .localized_name.toLowerCase().includes(searchQuery.toLowerCase()));
     setFilteredHeroes(filtered);
+  };
+
+  const handleFilterChange = (updatedFilters) => {
+    setFilters(updatedFilters);
+    // Perform filtering based on updatedFilters
   };
 
   const handleViewOptionChange = (option) => {
@@ -50,17 +58,15 @@ function HeroesPage() {
           <h2 className="text-4xl md:text-5xl font-semibold mb-2">Explore the Heroes</h2>
           <p className="text-2xl md:text-3xl">Browse, search, and find details on every hero in the Dota 2 universe.</p>
         </div>
-        <div className="flex justify-between items-center pr-2 mb-6">
+        <div className="relative w-full flex justify-between items-center pr-2 mb-6">
           <GridViewToggle
             listViewOption={listViewOption}
             handleViewOptionChange={handleViewOptionChange}
           />
           {/* Search and Filter Panel */}
-          <div className="hero-search-filter-panel">
+          <div className="flex gap-1 items-center justify-between h-auto">
             <SearchPanel onSearch={handleSearch} />
-
-            {/* Filters */}
-            {/* Dropdowns or checkboxes for filtering heroes by roles, attributes, etc. */}
+            <FilterCheckboxesPanel options={filters} onFilterChange={handleFilterChange} />
           </div>
         </div>
 

@@ -11,3 +11,4 @@ export { default as HeroCarousel } from './ux/HeroCarousel';
 export { default as HeroGrid } from './ux/HeroGrid';
 export { default as HeroList } from './ux/HeroList';
 export { default as SearchPanel } from './ux/SearchPanel';
+export { default as FilterCheckboxesPanel } from './ux/FilterCheckboxesPanel';
