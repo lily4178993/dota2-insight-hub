@@ -7,12 +7,14 @@ import {
   HeroCarousel,
   HeroGrid,
   HeroList,
+  SearchPanel,
 } from '../../components';
 
 function HeroesPage() {
   const { detailsListName } = useParams();
   const { heroes } = useSelector(selectHeroesState);
   const [listViewOption, setListViewOption] = useState(false);
+  const [filteredHeroes, setFilteredHeroes] = useState(heroes);
 
   useEffect(() => {
     const savedOption = localStorage.getItem('listViewOption');
@@ -20,6 +22,16 @@ function HeroesPage() {
       setListViewOption(JSON.parse(savedOption));
     }
   }, []);
+
+  useEffect(() => {
+    setFilteredHeroes(heroes);
+  }, [heroes]);
+
+  const handleSearch = (searchQuery) => {
+    const filtered = heroes.filter((hero) => hero
+      .localized_name.toLowerCase().includes(searchQuery.toLowerCase()));
+    setFilteredHeroes(filtered);
+  };
 
   const handleViewOptionChange = (option) => {
     setListViewOption(option);
@@ -31,14 +43,6 @@ function HeroesPage() {
       <div className="w-full min-h-screen -mt-5 pb-10 sm:pb-0 sm:h-screen bg-black">
         <HeroCarousel />
       </div>
-      {/* Hero Search and Filter Panel */}
-      <div className="hero-search-filter-panel">
-        {/* Search Box */}
-        {/* Place the search input here */}
-
-        {/* Filters */}
-        {/* Dropdowns or checkboxes for filtering heroes by roles, attributes, etc. */}
-      </div>
 
       {/* Hero Grid or List */}
       <section className="hero-grid-list pt-20 sm:pt-4 lg:pt-24 pb-20 bg-gradient-to-t from-black/50 to-black" id="explore-heroes">
@@ -46,16 +50,27 @@ function HeroesPage() {
           <h2 className="text-4xl md:text-5xl font-semibold mb-2">Explore the Heroes</h2>
           <p className="text-2xl md:text-3xl">Browse, search, and find details on every hero in the Dota 2 universe.</p>
         </div>
-        <GridViewToggle
-          listViewOption={listViewOption}
-          handleViewOptionChange={handleViewOptionChange}
-        />
+        <div className="flex justify-between items-center pr-2 mb-6">
+          <GridViewToggle
+            listViewOption={listViewOption}
+            handleViewOptionChange={handleViewOptionChange}
+          />
+          {/* Search and Filter Panel */}
+          <div className="hero-search-filter-panel">
+            <SearchPanel onSearch={handleSearch} />
+
+            {/* Filters */}
+            {/* Dropdowns or checkboxes for filtering heroes by roles, attributes, etc. */}
+          </div>
+        </div>
+
+        {/* Grid or List View */}
         <div className="min-h-96">
           {!listViewOption && detailsListName === 'heroes' && (
-            <HeroGrid heroesData={heroes} />
+            <HeroGrid heroesData={filteredHeroes} />
           )}
           {listViewOption && detailsListName === 'heroes' && (
-            <HeroList heroesData={heroes} />
+            <HeroList heroesData={filteredHeroes} />
           )}
         </div>
       </section>
