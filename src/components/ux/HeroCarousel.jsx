@@ -59,9 +59,9 @@ function HeroCarousel() {
       {/* eslint-disable-next-line react/jsx-props-no-spreading */}
       <Slider {...settings}>
         {slidesData.map((slide) => (
-          <div key={slide.id} className="relative h-screen">
+          <div key={slide.id} className="relative min-h-screen mb-32 sm:mb-0 sm:h-screen">
             <div className="absolute w-full h-full bg-gradient-to-b from-black/50 to-black" />
-            <div className="absolute w-full h-full md:w-3/4 lg:w-full lg:top-2/4 top-1/4 left-2/4 -translate-x-2/4 lg:left-0 lg:translate-x-0 px-4 lg:text-left text-balance text-center grid grid-cols-1 lg:grid-cols-3 place-content-start">
+            <div className="absolute w-full h-full md:w-3/4 lg:w-full lg:top-2/4 top-1/4 left-2/4 -translate-x-2/4 lg:left-0 lg:translate-x-0 lg:-translate-y-1/4 px-4 lg:text-left text-balance text-center grid grid-cols-1 lg:grid-cols-3 place-content-start">
               <h1 className="max-w-xl text-5xl md:text-6xl font-semibold mb-4 lg:col-span-2">
                 {slide.title}
               </h1>
