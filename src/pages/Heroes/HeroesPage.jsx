@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { selectHeroesState } from '../../redux/slices';
+import useFilteredData from '../../hooks/useFilteredData';
 import {
   FilterCheckboxesPanel,
   GridViewToggle,
@@ -16,8 +17,8 @@ function HeroesPage() {
   const { detailsListName } = useParams();
   const { heroes } = useSelector(selectHeroesState);
   const [listViewOption, setListViewOption] = useState(false);
-  const [filteredHeroes, setFilteredHeroes] = useState(heroes);
   const [filters, setFilters] = useState(heroFilters);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     const savedOption = localStorage.getItem('listViewOption');
@@ -26,19 +27,16 @@ function HeroesPage() {
     }
   }, []);
 
-  useEffect(() => {
-    setFilteredHeroes(heroes);
-  }, [heroes]);
+  const checkboxFilters = useMemo(() => filters.filter((f) => f.checked), [filters]);
 
-  const handleSearch = (searchQuery) => {
-    const filtered = heroes.filter((hero) => hero
-      .localized_name.toLowerCase().includes(searchQuery.toLowerCase()));
-    setFilteredHeroes(filtered);
+  const filteredHeroes = useFilteredData(heroes, checkboxFilters, searchQuery);
+
+  const handleSearch = (query) => {
+    setSearchQuery(query);
   };
 
   const handleFilterChange = (updatedFilters) => {
     setFilters(updatedFilters);
-    // Perform filtering based on updatedFilters
   };
 
   const handleViewOptionChange = (option) => {
