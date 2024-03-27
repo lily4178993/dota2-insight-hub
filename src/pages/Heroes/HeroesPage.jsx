@@ -78,37 +78,6 @@ function HeroesPage() {
           )}
         </div>
       </section>
-
-      {/* Individual Hero Page - Template (Consider making this a separate component) */}
-      {/* This section should be dynamic, displaying information of the hero selected */}
-      <div className="individual-hero-page">
-        {/* Hero Header */}
-        {/* Display hero's name, main image, and a catchphrase or quote here */}
-
-        {/* Tabs/Sections for Hero Details (Overview, Abilities, Strategy, etc.) */}
-        <div className="hero-details-tabs">
-          {/* Overview */}
-          {/* Abilities */}
-          {/* Strategy */}
-          {/* Counter and Synergy */}
-          {/* Media */}
-          {/* Community */}
-          {/* Implement tabs or sections here */}
-        </div>
-
-        {/* Sidebar with Quick Stats, Recent Changes, and Related Heroes */}
-        <div className="hero-sidebar">
-          {/* Quick Stats */}
-          {/* Recent Changes */}
-          {/* Related Heroes */}
-          {/* Sidebar content goes here */}
-        </div>
-      </div>
-
-      {/* Optional: Interactive Elements like Polls, Quizzes, Hero Comparison Tool */}
-      <div className="interactive-elements">
-        {/* Implement any interactive elements you plan to include */}
-      </div>
     </div>
   );
 }
