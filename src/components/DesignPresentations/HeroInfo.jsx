@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './heroInfo.css';
 
-const HeroInfo = ({ data }) => {
+function HeroInfo({ data }) {
   const generatePosterlink = (imgUrl) => {
     const nameParam = imgUrl.split('/').pop().replace('.png?', '');
     return `https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/${nameParam}.png`;
@@ -193,7 +193,7 @@ const HeroInfo = ({ data }) => {
     </div>
 
   );
-};
+}
 HeroInfo.propTypes = {
   data: PropTypes.shape({
     localized_name: PropTypes.string.isRequired,
