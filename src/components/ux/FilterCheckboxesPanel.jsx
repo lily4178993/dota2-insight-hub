@@ -44,6 +44,7 @@ function FilterCheckboxesPanel({ options, onFilterChange }) {
                     type="checkbox"
                     id={`filter-${option.id}`}
                     checked={option.checked}
+                    value={option.value}
                     onChange={() => handleCheckboxChange(option)}
                     className="form-checkbox rounded checked:border-indigo-500"
                   />
@@ -62,6 +63,7 @@ FilterCheckboxesPanel.propTypes = {
   options: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     label: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
     checked: PropTypes.bool.isRequired,
   })).isRequired,
 };
