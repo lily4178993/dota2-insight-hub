@@ -1,37 +1,33 @@
 import { useMemo } from 'react';
 
 const useFilteredData = (data, checkboxFilters, searchQuery) => {
-  const options = useMemo(() => ({
-    checkboxFilters,
-    searchQuery,
-  }), [checkboxFilters, searchQuery]);
-
   const filteredData = useMemo(() => {
-    if (!data || data.length === 0) {
-      return [];
-    }
+    if (!data || data.length === 0) return [];
 
-    let result = [...data]; // Start with all data
+    return data.filter((hero) => {
+      // Search filter
+      const matchesSearch = searchQuery.length === 0 || Object.values(hero).some(
+        (val) => typeof val === 'string' && val.toLowerCase().includes(searchQuery.toLowerCase()),
+      );
 
-    // Apply checkbox filters
-    if (options.checkboxFilters) {
-      Object.keys(options.checkboxFilters).forEach((key) => {
-        const values = options.checkboxFilters[key];
-        if (values.length > 0) {
-          result = result.filter((item) => values.includes(item[key]));
+      // Checkbox filters
+      const matchesFilters = checkboxFilters.every((filter) => {
+        if (!filter.checked) return true; // Skip unchecked filters
+
+        switch (filter.type) {
+          case 'primary_attr':
+            return hero.primary_attr === filter.value;
+          case 'role':
+            return hero.roles.includes(filter.label);
+          // Implement other cases as necessary
+          default:
+            return true;
         }
       });
-    }
 
-    // Apply search query filter
-    if (options.searchQuery) {
-      const searchQueryLower = options.searchQuery.toLowerCase();
-      result = result.filter((item) => Object
-        .values(item).some((val) => String(val).toLowerCase().includes(searchQueryLower)));
-    }
-
-    return result;
-  }, [data, options]);
+      return matchesSearch && matchesFilters;
+    });
+  }, [data, checkboxFilters, searchQuery]);
 
   return filteredData;
 };
