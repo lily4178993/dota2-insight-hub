@@ -3,15 +3,7 @@ import PropTypes from 'prop-types';
 import './itemPresentation.css';
 
 function ItemPresentation({ data }) {
-  if (!data || data.length === 0) {
-    return (
-      <div className="error-fetch">
-        Something went wrong!
-        <br />
-        Item&apos;s data not found
-      </div>
-    );
-  }
+  // const ITEM_IMAGE_URL = 'https://api.opendota.com';
   return (
     <div className="item-presentation">
       <div className="item-details">
@@ -46,7 +38,7 @@ function ItemPresentation({ data }) {
         <div className="item-image">
           <strong>Item Image:</strong>
           <br />
-          <img src={`https://api.opendota.com${data?.img}`} alt={data?.dname} />
+          <img src={data?.img} alt={data?.dname} />
         </div>
         <p>
           <strong>Lore:</strong>
