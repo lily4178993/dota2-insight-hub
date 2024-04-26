@@ -1,20 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import usePagination from '../../hooks/usePagination';
 import generateHeroPosterlink from '../../utils/generateHeroPosterlink';
 import Pagination from './Pagination';
 import { IconAgility, IconIntelligeence, IconStrength } from '../../assets';
 
 function HeroGrid({ heroesData }) {
   const itemsPerPage = 8;
-  const [itemOffset, setItemOffset] = useState(0);
-
-  const endOffset = itemOffset + itemsPerPage;
-  const currentItems = heroesData.slice(itemOffset, endOffset);
-
-  const handlePageChange = (newOffset) => {
-    setItemOffset(newOffset);
-  };
+  const { currentItems, handlePageChange, itemOffset } = usePagination(heroesData, itemsPerPage);
 
   return (
     <>
@@ -23,7 +17,7 @@ function HeroGrid({ heroesData }) {
           currentItems.map((hero) => (
             <div key={hero.id} className="group chess-grid relative h-52 hover:!bg-slate-900 overflow-hidden">
 
-              <img src={generateHeroPosterlink(`https://api.opendota.com${hero?.img}`)} alt={hero?.localized_name} className="w-36 h-36 mt-6 lg:mt-0 group-hover:scale-110 group-hover:mt-6 transition-all" />
+              <img src={generateHeroPosterlink(`https://api.opendota.com${hero?.img}`, 'png')} alt={hero?.localized_name} className="w-36 h-36 mt-6 lg:mt-0 group-hover:scale-110 group-hover:mt-6 transition-all" />
               <div className="grid grid-rows-3 w-full h-full absolute bottom-0 right-0 place-items-end p-2">
                 <h2 className="text-xl lg:text-2xl font-semibold mb-10 lg:mb-0">{hero?.localized_name}</h2>
                 <div className="flex bg-pink-900/30">
