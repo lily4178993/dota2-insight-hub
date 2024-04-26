@@ -1,18 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import usePagination from '../../hooks/usePagination';
 import Pagination from './Pagination';
 
 function HeroList({ heroesData }) {
   const itemsPerPage = 12;
-  const [itemOffset, setItemOffset] = useState(0);
-
-  const endOffset = itemOffset + itemsPerPage;
-  const currentItems = heroesData.slice(itemOffset, endOffset);
-
-  const handlePageChange = (newOffset) => {
-    setItemOffset(newOffset);
-  };
+  const { currentItems, handlePageChange, itemOffset } = usePagination(heroesData, itemsPerPage);
 
   return (
     <>
