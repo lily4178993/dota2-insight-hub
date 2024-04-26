@@ -5,6 +5,10 @@ import { Link } from 'react-router-dom';
 function Footer() {
   return (
     <footer className="footer">
+      {/* Site Map */}
+      {/* Social Media Links */}
+      {/* Legal Information */}
+      {/* Footer content here */}
       <div className="footer-container">
         <div className="footer-content">
           <p>&copy; 2023 Dota2 Insight Hub</p>

@@ -30,10 +30,20 @@
   scroll-padding-top: 80px;
 }
 
+::-webkit-scrollbar {
+  width: 1px;
+  background-color: var(--color-blue-2);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #fff;
+}
+
 body {
   font-family: var(--font-family-1);
   color: var(--color-white-2);
   background: var(--color-blue-1);
+  font-size: 1.125rem;
 }
 
 main {
@@ -50,6 +60,22 @@ button {
   cursor: pointer;
 }
 
-#root {
-  overflow: hidden;
+.parallax-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 130%;
+  height: 100%;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
 }
+
+.deco-pattern {
+  background: transparent url("assets/faux-stones.svg") repeat 500px;
+  fill: #fff;
+}
+
+/* #root {
+  overflow: hidden;
+} */
