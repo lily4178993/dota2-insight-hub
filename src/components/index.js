@@ -1,8 +1,8 @@
 export { default as Header } from './Header/Header';
 export { default as Card } from './Card/Card';
+export { default as StatCard } from './Card/StatCard';
 export { default as Filter } from './Filter/Filter';
 export { default as Footer } from './Footer/Footer';
-export { default as HeroInfo } from './DesignPresentations/HeroInfo';
 export { default as ItemPresentation } from './DesignPresentations/ItemPresentation';
 export { default as MatchInfo } from './DesignPresentations/MatchInfo';
 export { default as ProPlayerProfile } from './DesignPresentations/ProPlayerProfile';
@@ -12,3 +12,4 @@ export { default as HeroGrid } from './ux/HeroGrid';
 export { default as HeroList } from './ux/HeroList';
 export { default as SearchPanel } from './ux/SearchPanel';
 export { default as FilterCheckboxesPanel } from './ux/FilterCheckboxesPanel';
+export { default as HeroAbilitiesSwiper } from './ux/HeroAbilitiesSwiper';
