@@ -61,7 +61,7 @@ function HeroAbilitiesSwiper({ heroAbilities }) {
                   </ul>
                 )}
               </div>
-              {abilityDetailsKey.target_team
+              {abilityDetailsKey.target_team && abilityDetailsKey.target_team.length > 0
               && (
               <div className="float-right">
                 <h4 className="font-semibold my-1.5">Target</h4>
@@ -110,7 +110,7 @@ function HeroAbilitiesSwiper({ heroAbilities }) {
 
 HeroAbilitiesSwiper.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
-  heroAbilities: PropTypes.object.isRequired,
+  heroAbilities: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };
 
 export default HeroAbilitiesSwiper;
