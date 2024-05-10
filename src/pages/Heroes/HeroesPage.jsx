@@ -46,8 +46,7 @@ function HeroesPage() {
 
   return (
     <div className="heroes-page-container">
-      {/* <div className="w-full min-h-screen -mt-5 pb-10 sm:pb-0 sm:h-screen bg-black"> */}
-      <div className="w-full h-screen -mt-5 pb-10 sm:pb-0 bg-black">
+      <div className="w-full h-screen 2xl:h-[50vh] -mt-5 pb-10 sm:pb-0 bg-black">
         <HeroCarousel />
       </div>
 
