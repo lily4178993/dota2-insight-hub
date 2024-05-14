@@ -11,12 +11,13 @@ import {
   selectMatchesState,
   selectPlayersState,
 } from '../../redux/slices';
-import { Card } from '../../components';
+import { Card, HeroCarousel } from '../../components';
 import urlSpaceChecker from '../../utils/urlSpaceChecker';
 import heroesImage from '../../assets/angelSword.png';
 import itemsImage from '../../assets/hammer.png';
 import matchesImage from '../../assets/trophy.png';
 import playersImage from '../../assets/gamepad.png';
+import { homeSlidesData } from '../../constants';
 import './home.css';
 
 function Home() {
@@ -76,6 +77,9 @@ function Home() {
   return (
     <section>
       <div className="home-container">
+        <div className="w-full h-screen 2xl:h-[50vh] -mt-5 pb-10 sm:pb-0 bg-black">
+          <HeroCarousel slidesData={homeSlidesData} />
+        </div>
         {data.map((cardData) => (
           <Link to={`/details/${urlSpaceChecker(`${cardData.cardTitle}`)}`} key={cardData.cardTitle}>
             <Card
