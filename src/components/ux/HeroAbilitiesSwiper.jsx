@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination as swiperPagination } from 'swiper/modules';
@@ -5,6 +6,16 @@ import { generateHeroAbilityIconlink } from '../../utils';
 import { abilitiesData } from '../../constants';
 
 function HeroAbilitiesSwiper({ heroAbilities }) {
+  const [isToggle, setIsToggle] = useState({});
+
+  const handleToggle = (ability) => {
+    setIsToggle((prev) => ({ ...prev, [ability]: !prev[ability] }));
+  };
+
+  const handleSlideChange = () => {
+    setIsToggle({});
+  };
+
   return (
     <Swiper
       effect="coverflow"
@@ -20,6 +31,7 @@ function HeroAbilitiesSwiper({ heroAbilities }) {
       }}
       pagination
       modules={[EffectCoverflow, swiperPagination]}
+      onSlideChange={handleSlideChange}
       className="mySwiper my-10"
     >
       {heroAbilities.map((ability) => {
@@ -44,6 +56,7 @@ function HeroAbilitiesSwiper({ heroAbilities }) {
               </p>
             </div>
             <div className="-mt-10 h-64">
+              {!isToggle[ability] && (
               <div className="float-left">
                 <h4 className="font-semibold my-1.5">Actions</h4>
                 {typeof abilityDetailsKey.behavior === 'string' ? (
@@ -61,45 +74,50 @@ function HeroAbilitiesSwiper({ heroAbilities }) {
                   </ul>
                 )}
               </div>
+              )}
               {abilityDetailsKey.target_team && abilityDetailsKey.target_team.length > 0
-              && (
-              <div className="float-right">
-                <h4 className="font-semibold my-1.5">Target</h4>
-                <p>{abilityDetailsKey.target_team}</p>
-              </div>
+               && !isToggle[ability] && (
+               <div className="float-right">
+                 <h4 className="font-semibold my-1.5">Target</h4>
+                 <p>{abilityDetailsKey.target_team}</p>
+               </div>
               )}
               {abilityDetailsKey.desc
               && (
                 <div className="float-left">
-                  <h4 className="font-semibold my-1.5">Description</h4>
-                  <p className="text-white text-lg text-balance font-light leading-snug h-56 overflow-y-auto overscroll-contain ">{abilityDetailsKey.desc}</p>
+                  {!isToggle[ability] && (
+                  <>
+                    <h4 className="font-semibold my-1.5">Description</h4>
+                    <p className="text-white text-lg text-balance font-light leading-snug h-56 overflow-y-auto overscroll-contain ">{abilityDetailsKey.desc}</p>
+                  </>
+                  )}
+                  {abilityDetailsKey.attrib && abilityDetailsKey.attrib.length > 0 && (
+                    <button
+                      type="button"
+                      className={`p-2 block bg-blue-950 rounded-sm hover:px-4 focus-visible:px-4 transition-all absolute bottom-0 right-0 z-[10] ${isToggle[ability] ? 'bg-red-700' : 'bg-blue-950'}`}
+                      onClick={() => handleToggle(ability)}
+                    >
+                      {isToggle[ability] ? 'Close' : 'View Attributes'}
+                    </button>
+                  )}
                 </div>
               )}
-              {/*
-                If abilityDetailsKey.attrib exist and abilityDetailsKey.attrib is not an empt array,
-                  - Add a "View More" or "View Attributes" or "-->" button after the Description
-                  - Add an event to that button so if user click,
-                    - show the attributes values of the Hero ability
-                    - Change or Add a new button "Close" or "X" to hide the attributes if clicked
-
-                Idea of design:
-                - The container to wrap all the attributes:
-                  - Init: height = 0 <---> Description box = h-56
-                  - End(appears on the screen): height = h-56 <---> Description box = 0
-                  - Overflow vertical auto
-                -Boxes for infos the attibutes:
-                  - mobile width = 100% desktop width = 1/2
-                  - Even box on left and entirely text align left
-                  - Odd box on right and entirely text align right
-
-                  REPRESNETATION OF THE BOXES ODD AND EVEN
-                  -|
-                   |-
-                  -|
-                   |-
-                  -|
-                   |-
-               */}
+              {abilityDetailsKey.attrib && abilityDetailsKey.attrib.length > 0 && isToggle[ability]
+               && (
+                 <div className="h-full">
+                   <h4 className="font-semibold my-1.5">Attributes</h4>
+                   <ul className="flex flex-wrap gap-2 h-full overflow-y-auto overscroll-contain">
+                     {abilityDetailsKey.attrib.map((attribute, index) => (
+                       <li
+                         key={attribute.index}
+                         className={`w-1/2 h-fit px-2 py-1 rounded-sm shadow-inner shadow-blue-500 ${index % 2 === 0 ? 'ml-auto text-right' : ''}`}
+                       >
+                         {`${attribute.header} ${attribute.value}`}
+                       </li>
+                     ))}
+                   </ul>
+                 </div>
+               )}
             </div>
           </SwiperSlide>
         );
