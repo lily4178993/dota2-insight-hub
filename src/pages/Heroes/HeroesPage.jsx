@@ -11,7 +11,8 @@ import {
   HeroList,
   SearchPanel,
 } from '../../components';
-import { heroFilters } from '../../constants/constant';
+import { BannerHeroes4 } from '../../assets';
+import { heroFilters, heroesSlidesData } from '../../constants';
 
 function HeroesPage() {
   const { detailsListName } = useParams();
@@ -47,7 +48,7 @@ function HeroesPage() {
   return (
     <div className="heroes-page-container">
       <div className="w-full h-screen 2xl:h-[50vh] -mt-5 pb-10 sm:pb-0 bg-black">
-        <HeroCarousel />
+        <HeroCarousel slidesData={heroesSlidesData} backgroundImage={BannerHeroes4} />
       </div>
 
       {/* Hero Grid or List */}
