@@ -13,7 +13,7 @@ function HeroList({ heroesData }) {
       <div className="detailsList-container">
         {currentItems.length > 0 ? (
           currentItems.map((hero) => (
-            <Link to={`/details/heroes/${hero.localized_name}`} key={hero.id} className="chess-grid group">
+            <Link to={`/heroes/${hero.localized_name}`} key={hero.id} className="chess-grid group">
               <div className="flex gap-2 justify-between items-center p-1 lg:px-3 hover:bg-slate-900 group-focus:bg-slate-900 transition-colors">
                 <span className="text-xl md:text-2xl lg:text-3xl group-hover:underline group-focus:underline">{hero.localized_name}</span>
                 <ul className="flex gap-2 justify-between items-center">

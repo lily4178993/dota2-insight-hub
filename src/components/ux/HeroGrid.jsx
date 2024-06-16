@@ -34,7 +34,7 @@ function HeroGrid({ heroesData }) {
                     {hero?.base_int}
                   </p>
                 </div>
-                <Link to={`/details/heroes/${hero.localized_name}`} className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500 relative inline-block mb-2 hover:before:skew-y-6 focus-visible:before:skew-y-6"><span className="relative text-white">View Details</span></Link>
+                <Link to={`/heroes/${hero.localized_name}`} className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500 relative inline-block mb-2 hover:before:skew-y-6 focus-visible:before:skew-y-6"><span className="relative text-white">View Details</span></Link>
               </div>
             </div>
           ))

@@ -14,9 +14,9 @@ register();
 
 const routesList = [
   { path: '/', element: <Home /> },
-  { path: '/details/:detailsListName', element: <Details /> },
+  { path: '/:detailsListName', element: <Details /> },
   {
-    path: '/details/:detailsListName/:detailsItemID',
+    path: '/:detailsListName/:detailsItemID',
     element: <DetailsItem />,
   },
   { path: '/aboutme', element: <AboutMe /> },
