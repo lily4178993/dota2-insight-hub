@@ -48,7 +48,7 @@ function HeroCarousel({
           }}
         >
           <div className="size-full flex flex-col 2xl:flex-row 2xl:items-center justify-center font-light text-center md:text-left text-balance bg-gradient-to-t from-black from-10% py-10 md:px-16">
-            <h1 className={`2xl:w-[850px] text-4xl md:text-7xl ${isSliderModuleArray && sliderModule.includes('Parallax') ? 'data-swiper-parallax="-300"' : ''}`}>{slide.title}</h1>
+            <p className={`2xl:w-[850px] text-4xl md:text-7xl ${isSliderModuleArray && sliderModule.includes('Parallax') ? 'data-swiper-parallax="-300"' : ''}`}>{slide.title}</p>
             <p className={`md:w-[850px] md:text-4xl mt-4 2xl:mt-0 ${isSliderModuleArray && sliderModule.includes('Parallax') ? 'data-swiper-parallax="-200"' : ''}`}>{slide.description}</p>
           </div>
         </SwiperSlide>
