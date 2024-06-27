@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { Parallax } from 'swiper/modules';
 import { selectHeroesState } from '../../redux/slices';
 import useFilteredData from '../../hooks/useFilteredData';
 import {
@@ -28,6 +29,10 @@ function HeroesPage() {
     }
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const checkboxFilters = useMemo(() => filters.filter((f) => f.checked), [filters]);
 
   const filteredHeroes = useFilteredData(heroes, checkboxFilters, searchQuery);
@@ -48,22 +53,28 @@ function HeroesPage() {
   return (
     <div className="heroes-page-container">
       <div className="w-full h-screen 2xl:h-[50vh] -mt-5 pb-10 sm:pb-0 bg-black">
-        <HeroCarousel slidesData={heroesSlidesData} backgroundImage={BannerHeroes4} />
+        <HeroCarousel
+          slidesData={heroesSlidesData}
+          carouselImage={BannerHeroes4}
+          sliderModule={[Parallax]}
+          sliderEffect="parallax"
+          sliderSpeed={3000}
+        />
       </div>
 
       {/* Hero Grid or List */}
-      <section className="hero-grid-list pt-20 sm:pt-4 lg:pt-24 pb-20 bg-gradient-to-t from-black/50 to-black" id="explore-heroes">
-        <div className="text-center text-balance mb-8 lg:mb-10 px-2">
-          <h2 className="text-4xl md:text-5xl font-semibold mb-2">Explore the Heroes</h2>
+      <section className="pt-20 pb-20 hero-grid-list sm:pt-4 lg:pt-24 bg-gradient-to-t from-black/50 to-black" id="explore-heroes">
+        <div className="px-2 mb-8 text-center text-balance lg:mb-10">
+          <h2 className="mb-2 text-4xl font-semibold md:text-5xl">Explore the Heroes</h2>
           <p className="text-2xl md:text-3xl">Browse, search, and find details on every hero in the Dota 2 universe.</p>
         </div>
-        <div className="relative w-full flex justify-between items-center pr-2 mb-6">
+        <div className="relative flex items-center justify-between w-full pr-2 mb-6">
           <GridViewToggle
             listViewOption={listViewOption}
             handleViewOptionChange={handleViewOptionChange}
           />
           {/* Search and Filter Panel */}
-          <div className="flex gap-1 items-center justify-between h-auto">
+          <div className="flex items-center justify-between h-auto gap-1">
             <SearchPanel onSearch={handleSearch} />
             <FilterCheckboxesPanel options={filters} onFilterChange={handleFilterChange} />
           </div>
