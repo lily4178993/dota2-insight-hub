@@ -42,7 +42,7 @@ function HeroCarousel({
         <SwiperSlide
           key={slide.id}
           style={{
-            background: `url(${slide?.image}) no-repeat top/cover, #0000008c`,
+            background: `url(${slide?.image}) no-repeat top/cover, #00000077`,
             backgroundBlendMode: 'multiply',
             isolation: 'isolate',
           }}
