@@ -148,7 +148,7 @@ function IndividualHeroPage({ hero }) {
           {
           currentItems.map((hero) => (
             <li key={hero.id} className="flex flex-col items-center gap-4 group transition-all">
-              <Link to={`/details/heroes/${hero.localized_name}`} className="outline-none ring-transparent rounded-full group-hover:bg-slate-800">
+              <Link to={`/heroes/${hero.localized_name}`} className="outline-none ring-transparent rounded-full group-hover:bg-slate-800">
                 <img src={generateHeroPosterlink(`https://api.opendota.com${hero.img}`, 'png')} alt={hero.localized_name} className="h-24 md:h-32 p-1 group-hover:scale-125" />
               </Link>
               <span className="opacity-0 group-hover:opacity-100 group-focus-within:opacity-100">{hero.localized_name}</span>
