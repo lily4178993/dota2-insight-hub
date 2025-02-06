@@ -9,8 +9,7 @@ import {
   attributeDictionary,
   generateHeroPosterlink,
 } from '../../utils';
-import Pagination from '../../components/ux/Pagination';
-import { HeroAbilitiesSwiper, StatCard } from '../../components';
+import { HeroAbilitiesSwiper, Pagination, StatCard } from '../../components';
 import { usePagination } from '../../hooks';
 
 function IndividualHeroPage({ hero }) {
@@ -48,17 +47,13 @@ function IndividualHeroPage({ hero }) {
           <div className="relative flex justify-between w-1/3 before:absolute before:bottom-0 before:w-full before:h-1 before:bg-gradient-to-tl from-green-600 to-green-800">
             Health
             <span className="text-right">
-              {`${
-                hero.base_health + 22 * hero.base_str
-              } HP`}
+              {`${hero.base_health + 22 * hero.base_str} HP`}
             </span>
           </div>
           <div className="relative flex justify-between w-1/3 before:absolute before:bottom-0 before:w-full before:h-1 before:bg-gradient-to-tl from-blue-600 to-blue-800">
             Mana
             <span className="text-right">
-              {`${
-                hero.base_mana + 12 * hero.base_int
-              } MP`}
+              {`${hero.base_mana + 12 * hero.base_int} MP`}
             </span>
           </div>
         </div>
@@ -86,9 +81,7 @@ function IndividualHeroPage({ hero }) {
         <p className="relative flex justify-between text-right text-balance">
           <span>{`Type: ${hero.attack_type}`}</span>
           <span>
-            {`Primary Attribute: ${attributeDictionary(
-              hero.primary_attr,
-            )}`}
+            {`Primary Attribute: ${attributeDictionary(hero.primary_attr)}`}
           </span>
         </p>
       </div>

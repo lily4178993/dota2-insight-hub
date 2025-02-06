@@ -13,3 +13,4 @@ export { default as HeroList } from './ux/HeroList';
 export { default as SearchPanel } from './ux/SearchPanel';
 export { default as FilterCheckboxesPanel } from './ux/FilterCheckboxesPanel';
 export { default as HeroAbilitiesSwiper } from './ux/HeroAbilitiesSwiper';
+export { default as Pagination } from './ux/Pagination';
