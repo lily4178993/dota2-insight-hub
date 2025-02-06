@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function usePagination(initialItems, itemsPerPage) {
+function usePagination(initialItems, itemsPerPage) {
   const [itemOffset, setItemOffset] = useState(0);
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = initialItems.slice(itemOffset, endOffset);
@@ -11,3 +11,5 @@ export default function usePagination(initialItems, itemsPerPage) {
 
   return { currentItems, handlePageChange, itemOffset };
 }
+
+export default usePagination;

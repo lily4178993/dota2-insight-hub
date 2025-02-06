@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import usePagination from '../../hooks/usePagination';
+import { usePagination } from '../../hooks';
 import Pagination from './Pagination';
 
 function HeroList({ heroesData }) {
