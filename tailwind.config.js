@@ -2,7 +2,20 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        rotate: {
+          '0%': { transform: 'perspective(1000px) rotateY(360deg)' },
+          '100%': { transform: 'perspective(1000px) rotateY(0deg)' },
+        },
+      },
+      animation: {
+        rotate: 'rotate 30s linear infinite',
+      },
+      fontFamily: {
+        ica: ['ICA Rubrik', 'sans-serif'],
+      },
+    },
     screens: {
       xs: '320px',
       sm: '360px',

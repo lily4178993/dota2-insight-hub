@@ -6,6 +6,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  /* 
+  Code for the 3D cube effect
+  original code from: https://tailwindflex.com/@sammytg7/3d-animated-image-gallerya
+   */
+  .cube-span-style {
+    @apply absolute top-0 left-0 size-full origin-center [transform-style:preserve-3d] lg:[transform:rotateY(calc(var(--i)*45deg))_translateZ(350px)] md:[transform:rotateY(calc(var(--i)*45deg))_translateZ(308px)] sm:[transform:rotateY(calc(var(--i)*45deg))_translateZ(300px)] [transform:rotateY(calc(var(--i)*45deg))_translateZ(120px)];
+  }
+  .cube-img-style {
+    @apply absolute top-0 left-0 size-full rounded-sm object-cover [transition:2s] hover:-translate-y-[20px] hover:scale-[1.3] sm:hover:scale-[1];
+  }
+}
+
 :root {
   --color-blue-1: #0274ad;
   --color-blue-2: #0284c7;
@@ -31,7 +44,6 @@
   text-decoration: none;
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
-  /* border: 1px solid black; */
 }
 
 ::-webkit-scrollbar {
@@ -59,14 +71,12 @@ body {
   max-width: 1440px;
   min-height: 100vh;
   min-height: 100dvh;
-  /* margin: 0 auto; */
   display: grid;
   grid-template-rows: auto 1fr auto;
 }
 
 main {
   width: 100%;
-  /* padding: 6.25rem 0 0 0; */
   padding: 0;
   overflow-x: hidden;
 }
