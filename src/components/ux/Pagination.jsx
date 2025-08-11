@@ -2,6 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactPaginate from 'react-paginate';
 
+/**
+ * Pagination component for navigating through paged data.
+ *
+ * @param {Object} props - Component props.
+ * @param {number} props.itemsPerPage - Number of items displayed per page.
+ * @param {number} props.itemCount - Total number of items.
+ * @param {function} props.onPageChange - Callback function called
+ * with the new item offset when the page changes.
+ * @param {number} props.itemOffset - Current offset (index) of the first item displayed.
+ * @returns {JSX.Element} The rendered pagination controls.
+ */
 function Pagination({
   itemsPerPage, itemCount, onPageChange, itemOffset,
 }) {
