@@ -10,7 +10,7 @@ import fetch from 'node-fetch';
 // API endpoints & directories
 const API_ITEMS = 'https://api.opendota.com/api/constants/items';
 const TEMPORARY_DIR = './temporary_assets';
-const PUBLIC_DIR = '.public/assets/items_hd';
+const PUBLIC_DIR = 'public\\assets\\items_hd';
 
 // Model & executable selection
 let EXECUTABLE;
@@ -142,6 +142,19 @@ const upscaleImage = (inputPath, outputPath) => new Promise((resolve, reject) =>
   );
 });
 
+// Utility: Delete unscaled image from tempory folder
+const deleteUnscaledImage = async () => {
+  const files = await fse.readdir(TEMPORARY_DIR);
+  await Promise.all(
+    files.map((file) => {
+      if (!file.startsWith('up_')) {
+        fse.remove(path.join(TEMPORARY_DIR, file));
+      }
+      return Promise.resolve();
+    }),
+  );
+};
+
 // Function to rebuild the entire URL
 const rebuildURL = (imageUrl) => {
   const base = 'https://cdn.cloudflare.steamstatic.com';
@@ -198,7 +211,7 @@ const publishToPublic = async () => {
   console.log(
     chalk.cyan(`📦 Copying new optimized assets to the ${PUBLIC_DIR}`),
   );
-  await fse.copy(TEMPORARY_DIR, PUBLIC_DIR, { overwrite: true });
+  await fse.copy(TEMPORARY_DIR, PUBLIC_DIR);
 };
 
 // Log the current status of the processing pipeline
@@ -229,6 +242,7 @@ const logStatus = () => {
         );
       } finally {
         active -= 1;
+        await deleteUnscaledImage();
         logStatus();
       }
     }));
@@ -246,7 +260,6 @@ const logStatus = () => {
         ),
       );
     }
-
     console.log(chalk.bold.green('🏁 Pipeline complete with success!'));
   } catch (error) {
     console.error(chalk.bgRed.white('❌ Error in processing pipeline:'), error);
