@@ -111,41 +111,38 @@ const rebuildURL = (imageUrl) => {
 const fileExists = (filePath) => fs.existsSync(filePath);
 
 // Function to process image
-async function processImage(url) {
+const processImage = async (url) => {
   const { filename, finalURL } = rebuildURL(url);
   const localPath = `${TEMPORARY_DIR}/${filename}`;
   const upscaledPath = `${TEMPORARY_DIR}/up_${filename}`;
 
   try {
     // 1. Pre-download deduplication
-    if (fileExists(localPath)) {
-      console.log(
-        chalk.gray(`⏩ Skipping download, already exists: ${filename}`),
-      );
-    } else {
+    if (!fileExists(localPath)) {
       console.log(chalk.blue(`⬇️ Downloading: ${filename}`));
-      await downloadImage(finalURL, localPath);
+      await withRetry(() => downloadImage(finalURL, localPath));
+    } else {
+      console.log(chalk.gray(`⏩ Skipping download, exists: ${filename}`));
     }
 
     // 2. Pre-upscale deduplication
-    if (fileExists(upscaledPath)) {
+    if (!fileExists(upscaledPath)) {
+      console.log(chalk.yellow(`🔄 Upscaling: ${localPath}`));
+      await withRetry(() => upscaleImage(localPath, upscaledPath));
+    } else {
       console.log(
         chalk.gray(
-          `⏩ Skipping upscale, already exists: ${path.basename(upscaledPath)}`,
+          `⏩ Skipping upscale, exists: ${path.basename(upscaledPath)}`,
         ),
       );
-      return;
     }
-
-    // 3. Upscaling step
-    console.log(chalk.yellow(`🔄 Upscaling: ${localPath}`));
-    await upscaleImage(localPath, upscaledPath);
   } catch (error) {
     console.error(
       chalk.red(`❌ Error processing ${filename}: ${error.message}`),
     );
+    throw error; // Re-throw to handle in the main loop
   }
-}
+};
 
 // Publish the upscaled images to the public directory
 async function publishToPublic() {
@@ -157,6 +154,47 @@ async function publishToPublic() {
   );
   await fse.copy(TEMPORARY_DIR, PUBLIC_DIR, { overwrite: true });
 }
+
+// --- Error classification helper ---
+const classifyError = (error) => {
+  const message = error.message || '';
+  if (
+    message.includes('ENOTFOUND')
+    || message.includes('ECONNRESET')
+    || message.includes('ETIMEDOUT')
+    || /5\d{2}/.test(message)
+  ) return { retry: true };
+  if (message.includes('out of memory') || message.includes('VK_ERROR')) {
+    return { retry: true, cooldown: 5000 }; // 5s GPU cooldown
+  }
+  return { retry: false };
+};
+
+// --- Retry wrapper ---
+const withRetry = async (fn, retries = 3) => {
+  let attempt = 0;
+  while (attempt <= retries) {
+    try {
+      // eslint-disable-next-line no-await-in-loop
+      return await fn();
+    } catch (error) {
+      const { retry, cooldown } = classifyError(error);
+      attempt += 1;
+      if (!retry || attempt > retries) throw error;
+      if (cooldown) {
+        console.log(chalk.yellow(`⏳ Cooling down for ${cooldown}ms...`));
+        // eslint-disable-next-line no-await-in-loop
+        await new Promise((res) => {
+          setTimeout(res, cooldown);
+        });
+      } else {
+        console.log(chalk.yellow(`🔁 Retrying (${attempt}/${retries})...`));
+      }
+    }
+  }
+  // If we exhausted all retries, we can return a fallback value or re-throw the error
+  throw new Error('Max retries exceeded');
+};
 
 // Concurrency pool
 const limit = pLimit(MAX_PARALLEL);
