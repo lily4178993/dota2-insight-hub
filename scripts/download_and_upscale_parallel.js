@@ -106,6 +106,9 @@ const rebuildURL = (imageUrl) => {
   };
 };
 
+// Utility: Check if file exists
+const fileExists = (filePath) => fs.existsSync(filePath);
+
 // Function to process image
 async function processImage(url) {
   const { filename, finalURL } = rebuildURL(url);
@@ -113,11 +116,27 @@ async function processImage(url) {
   const upscaledPath = `${TEMPORARY_DIR}/up_${filename}`;
 
   try {
-    // Download image
-    console.log(chalk.blue(`⬇️ Downloading: ${filename}`));
-    await downloadImage(finalURL, localPath);
+    // 1. Pre-download deduplication
+    if (fileExists(localPath)) {
+      console.log(
+        chalk.gray(`⏩ Skipping download, already exists: ${filename}`),
+      );
+    } else {
+      console.log(chalk.blue(`⬇️ Downloading: ${filename}`));
+      await downloadImage(finalURL, localPath);
+    }
 
-    // Upscale image
+    // 2. Pre-upscale deduplication
+    if (fileExists(upscaledPath)) {
+      console.log(
+        chalk.gray(
+          `⏩ Skipping upscale, already exists: ${path.basename(upscaledPath)}`,
+        ),
+      );
+      return;
+    }
+
+    // 3. Upscaling step
     console.log(chalk.yellow(`🔄 Upscaling: ${localPath}`));
     await upscaleImage(localPath, upscaledPath);
   } catch (error) {
