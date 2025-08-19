@@ -1,5 +1,6 @@
 import fs from 'fs';
 import os from 'os';
+import pLimit from 'p-Limit';
 import path from 'path';
 import { execFile } from 'child_process';
 import fetch from 'node-fetch';
@@ -157,17 +158,22 @@ async function publishToPublic() {
   await fse.copy(TEMPORARY_DIR, PUBLIC_DIR, { overwrite: true });
 }
 
-// Create worker function
-let index = 0;
-async function worker(items) {
-  const promises = [];
-  while (index < items.length) {
-    const currentIndex = index;
-    index += 1;
-    promises.push(processImage(items[currentIndex]));
-  }
-  await Promise.all(promises);
-}
+// Concurrency pool
+const limit = pLimit(MAX_PARALLEL);
+
+// Counters
+let active = 0;
+let completed = 0;
+let failed = 0;
+
+// Log the current status of the processing pipeline
+const logStatus = () => {
+  process.stdout.write(
+    chalk.cyan(
+      `\rActive: ${active} | Completed: ${completed} | Failed: ${failed}`,
+    ),
+  );
+};
 
 // Main function to run the script
 (async () => {
@@ -175,10 +181,25 @@ async function worker(items) {
     const items = await getItems();
     console.log(chalk.bold(`📦 ${items.length} images found via API`));
 
-    // Create worker pool
-    await Promise.all(
-      Array.from({ length: MAX_PARALLEL }, () => worker(items)),
-    );
+    const tasks = items.map((url, idx) => limit(async () => {
+      active += 1;
+      logStatus();
+      try {
+        await processImage(url);
+        completed += 1;
+      } catch (error) {
+        failed += 1;
+        console.error(
+          chalk.red(`❌ Error processing item ${idx + 1}: ${error.message}`),
+        );
+      } finally {
+        active -= 1;
+        logStatus();
+      }
+    }));
+
+    // Run all tasks with concurrency limit
+    await Promise.all(tasks);
 
     // Publish the upscaled images to public directory if needed
     if (shouldPublish) {
