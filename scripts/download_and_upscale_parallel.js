@@ -6,11 +6,14 @@ import chalk from 'chalk';
 import pLimit from 'p-Limit';
 import { execFile } from 'child_process';
 import fetch from 'node-fetch';
+// eslint-disable-next-line import/extensions
+import generateManifest from './generate_manifest.js';
 
 // API endpoints & directories
 const API_ITEMS = 'https://api.opendota.com/api/constants/items';
 const TEMPORARY_DIR = './temporary_assets';
 const PUBLIC_DIR = 'public\\assets\\items_hd';
+const MANIFEST_PATH = 'src/constants/items_upscaled_manifest.json';
 
 // Model & executable selection
 let EXECUTABLE;
@@ -208,10 +211,19 @@ const publishToPublic = async () => {
   console.log(chalk.yellow(`🧹 Removing old public assets from ${PUBLIC_DIR}`));
   await fse.emptyDir(PUBLIC_DIR);
 
-  console.log(
-    chalk.cyan(`📦 Copying new optimized assets to the ${PUBLIC_DIR}`),
+  // Generate manifest
+  generateManifest(TEMPORARY_DIR, MANIFEST_PATH);
+  console.log(chalk.cyan(`📜 Manifest generated at ${MANIFEST_PATH}`));
+
+  // Copy images to public
+  const files = fs.readdirSync(TEMPORARY_DIR).filter((f) => f.endsWith('.png'));
+  await Promise.all(
+    files.map((file) => fs.promises.copyFile(
+      path.join(TEMPORARY_DIR, file),
+      path.join(PUBLIC_DIR, file),
+    )),
   );
-  await fse.copy(TEMPORARY_DIR, PUBLIC_DIR);
+  console.log(`✅ Published ${files.length} images to public folder`);
 };
 
 // Log the current status of the processing pipeline
