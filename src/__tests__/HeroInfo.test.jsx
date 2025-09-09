@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import HeroInfo from '../components/DesignPresentations/HeroInfo';
+import HeroInfo from '../pages/Heroes/IndividualHeroPage';
 
 test('HeroInfo component matches snapshot', () => {
   const data = {

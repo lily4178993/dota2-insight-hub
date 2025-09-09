@@ -43,6 +43,7 @@ const generateManifest = (sourceDir, outputPath) => {
   });
 
   fs.writeFileSync(outputPath, JSON.stringify(manifest, null, 2));
+  // eslint-disable-next-line no-console
   console.log(
     `✅ Manifest generated with ${files.length} entries at ${outputPath}`,
   );
