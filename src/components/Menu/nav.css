@@ -4,15 +4,14 @@
 } */
 
 .navbar {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding:
-    0.3em 2em
+  padding: 0.3em 2em
     /*  0.3em 4em */
   ;
 }
@@ -133,7 +132,7 @@ ul.nav-links li a {
 }
 
 .nav-item-wrapper::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 120px;
   left: -10%;
