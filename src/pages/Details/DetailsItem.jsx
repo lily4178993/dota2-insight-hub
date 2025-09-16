@@ -8,7 +8,10 @@ import {
 } from '../../components';
 import './detailsItem.css';
 import {
-  selectHeroesState, selectItemsState, selectMatchesState, selectPlayersState,
+  selectHeroesState,
+  selectAllItemsState,
+  selectMatchesState,
+  selectPlayersState,
 } from '../../redux/slices';
 import IndividualHeroPage from '../Heroes/IndividualHeroPage';
 
@@ -17,7 +20,7 @@ function DetailsItem() {
   const { detailsListName } = useParams();
 
   const { heroes } = useSelector(selectHeroesState);
-  const { items } = useSelector(selectItemsState);
+  const { items } = useSelector(selectAllItemsState);
   const { matches } = useSelector(selectMatchesState);
   const { players } = useSelector(selectPlayersState);
 
@@ -54,7 +57,7 @@ function DetailsItem() {
       case 'proMatches':
         if (matches && matches.length > 0) {
           index = matches.findIndex(
-            (object) => object.match_id === Number(detailsItemID),
+            (object) => object.match_id === Number(detailsItemID)
           );
           if (index !== -1) {
             return <MatchInfo data={matches[index]} />;
@@ -70,7 +73,7 @@ function DetailsItem() {
       case 'proPlayers':
         if (players && players.length > 0) {
           index = players.findIndex(
-            (object) => object.account_id === Number(detailsItemID),
+            (object) => object.account_id === Number(detailsItemID)
           );
           if (index !== -1) {
             return <ProPlayerProfile data={players[index]} />;

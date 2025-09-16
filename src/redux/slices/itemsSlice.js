@@ -41,5 +41,5 @@ const itemsSlice = createSlice({
   },
 });
 
-export const selectItemsState = (state) => state.items;
+export const selectAllItemsState = (state) => state.items;
 export default itemsSlice;

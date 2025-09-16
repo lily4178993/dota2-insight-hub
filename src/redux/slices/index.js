@@ -6,7 +6,7 @@ export {
 export {
   default as itemsSlice,
   fetchItems,
-  selectItemsState,
+  selectAllItemsState,
 } from './itemsSlice';
 export {
   default as matchesSlice,

@@ -1,13 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { selectItemsState } from '../../redux/slices';
-import { categorizeItem /* , generateItemIconlink */ } from '../../utils';
+import { selectAllItemsState } from '../../redux/slices';
+import { categorizeItem, generateItemIconlink } from '../../utils';
 import { useCategoryPagination } from '../../hooks';
-import { ItemsCard, Pagination } from '../../components';
 
 function ItemsPage() {
-  const { items } = useSelector(selectItemsState);
-  const itemsPerPage = 8;
+  const { items } = useSelector(selectAllItemsState);
+  const itemsPerPage = 5;
 
   // Categorize items
   const categorizedItems = items.map((item) => ({
@@ -27,8 +26,11 @@ function ItemsPage() {
     });
   });
 
-  // eslint-disable-next-line max-len
-  const { paginatedItemsByCategory, handlePageChange, paginationState } = useCategoryPagination(itemsByCategory, itemsPerPage);
+  // eslint-disable-next-line max-len, operator-linebreak
+  const { paginatedItemsByCategory } = useCategoryPagination(
+    itemsByCategory,
+    itemsPerPage
+  );
 
   return (
     <>
@@ -36,54 +38,79 @@ function ItemsPage() {
         ([category, paginatedItems]) => (
           <section
             key={category}
-            // className="grid gap-4 p-4 smx:grid-cols-2 md:grid-cols-4"
-            className="grid grid-cols-2 gap-4 p-4 md:grid-cols-4"
+            className="relative w-screen h-screen overflow-hidden carrousel bg-gradient-to-r from-black to-slate-900"
           >
-            <h2 className="text-4xl font-extrabold smx:col-span-2 smx:grid smx:gap-4 smx:grid-cols-2 md:col-span-3 md:text-5xl md:grid-cols-3">
-              <span className="md:col-span-2">{category}</span>
-            </h2>
-            <p className="smx:row-start-2 smx:col-start-2 smx:self-center md:col-start-1 md:col-span-2 md:pr-12 md:text-lg">
-              {categoryDescriptions[category] || 'No description available.'}
-            </p>
-            {paginatedItems.length > 0 ? (
-              paginatedItems.map((item, position) => (
-                <div
-                  key={item.id}
-                  className={` relative group md:justify-self-end smx:size-full md:h-fit bg-orange-950 ${
-                    position === 2 || position === 4 || position === 7
-                      ? 'bg-yellow-800'
-                      : 'bg-orange-950'
-                  } ${position === 3 ? 'md:col-start-2' : ''}`}
-                >
-                  <ItemsCard item={item} />
-                  {/* <span className="block px-4 mt-3 md:text-lg z-[2]">
-                    {item.dname}
-                  </span>
-                  <div className="absolute top-0 right-0 w-1/2 bg-pink-600 md:size-full">
+            {/* List of items */}
+            <div className="list">
+              {paginatedItems.length > 0 ? (
+                paginatedItems.map((item) => (
+                  <div
+                    className="absolute inset-0 item first:z-[1]"
+                    key={item.id}
+                  >
                     <img
                       src={generateItemIconlink(item.img)}
                       alt={item.dname}
-                      className="size-full md:aspect-square group-hover:scale-110"
+                      className="object-cover size-full"
                     />
-                  </div> */}
-                </div>
-              ))
-            ) : (
-              <p className="text-3xl flex items-center justify-center w-full h-96 border-[1px] border-slate-400 rounded-md md:md:text-lg">
-                There are no items in this category.
-              </p>
-            )}
-
-            <div className="self-center md:col-span-2 md:text-center md:px-4">
-              <Pagination
-                itemsPerPage={itemsPerPage}
-                itemCount={itemsByCategory[category].length}
-                onPageChange={(newOffset) => handlePageChange(category, newOffset)}
-                itemOffset={paginationState[category] || 0}
-              />
+                    <div className="content w-[1140px] absolute top-[20%] left-1/2 -translate-x-1/2 max-w-[80%] pr-[30%]">
+                      <span className="title">{item.dname}</span>
+                      <p className="description">{item.lore || item.notes}</p>
+                      <div className="grid grid-cols-2 gap-1 mt-5 buttons w-[50%] place-items-start">
+                        <button type="button">SEE MORE</button>
+                        <button type="button">THINK ABOUT</button>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <p className="text-3xl flex items-center justify-center w-full h-96 border-[1px] border-slate-400 rounded-md md:md:text-lg">
+                  There are no items to generate background in this category.
+                </p>
+              )}
+            </div>
+            {/* List of thumbnails */}
+            <div className="thumbnails absolute z-10 left-1/2 bottom-[50px] flex gap-5 max-w-max">
+              {paginatedItems.length > 0 ? (
+                paginatedItems.map((item) => (
+                  <div
+                    className="flex-shrink-0 item w-[150px] h-[220px] relative"
+                    key={item.id}
+                  >
+                    <img
+                      src={generateItemIconlink(item.img)}
+                      alt={item.dname}
+                      className="object-cover rounded-[20px] size-full"
+                    />
+                    <div className="content absolute bottom-[10px] inset-x-[10px]">
+                      <span className="title">{item.dname}</span>
+                      {/* Add cost here later */}
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <p className="text-3xl flex items-center justify-center w-full h-96 border-[1px] border-slate-400 rounded-md md:md:text-lg">
+                  There are no items to generate thumbnails in this category.
+                </p>
+              )}
+            </div>
+            {/* arrows */}
+            <div className="absolute z-10 arrows top-[80%] right-[52%] w-[300px] max-w-[30%] gap-2 items-center flex">
+              <button
+                type="button"
+                className="font-mono text-white transition-colors rounded-full size-10 bg-white/30 hover:bg-white hover:text-black"
+              >
+                prev
+              </button>
+              <button
+                type="button"
+                className="font-mono text-white transition-colors rounded-full size-10 bg-white/30 hover:bg-white hover:text-black"
+              >
+                next
+              </button>
             </div>
           </section>
-        ),
+        )
       )}
     </>
   );
