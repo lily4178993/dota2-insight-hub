@@ -1,0 +1,9 @@
+export { default as IconAgility } from './body-balance.svg';
+export { default as IconIntelligeence } from './brain.svg';
+export { default as IconStrength } from './biceps.svg';
+export { default as IconList } from './list-icon.svg';
+export { default as IconGrid } from './grid-icon.svg';
+export { default as IconSearch } from './flashlight.svg';
+export { default as IconFilter } from './funnel.svg';
+export { default as IconClose } from './sword-spade.svg';
+export { default as BannerHeroes4 } from './banner-heroes-4.jpeg';

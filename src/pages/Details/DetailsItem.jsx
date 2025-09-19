@@ -1,38 +1,37 @@
 import React from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import {
-  HeroInfo,
   ItemPresentation,
   MatchInfo,
   ProPlayerProfile,
 } from '../../components';
 import './detailsItem.css';
+import {
+  selectHeroesState,
+  selectAllItemsState,
+  selectMatchesState,
+  selectPlayersState,
+} from '../../redux/slices';
+import IndividualHeroPage from '../Heroes/IndividualHeroPage';
 
-const DetailsItem = () => {
+function DetailsItem() {
   const { detailsItemID } = useParams();
-  const location = useLocation();
-  const detailsListName = location.pathname.split('/')[2];
-  const detailsData = useSelector((state) => {
-    switch (detailsListName) {
-      case 'heroes':
-        return state.heroes.heroes;
-      case 'items':
-        return state.items.items;
-      case 'proMatches':
-        return state.matches.matches;
-      case 'proPlayers':
-        return state.players.players;
-      default:
-        return [];
-    }
-  });
+  const { detailsListName } = useParams();
+
+  const { heroes } = useSelector(selectHeroesState);
+  const { items } = useSelector(selectAllItemsState);
+  const { matches } = useSelector(selectMatchesState);
+  const { players } = useSelector(selectPlayersState);
+
+  let index = '' || null;
 
   const renderComponent = () => {
     switch (detailsListName) {
       case 'heroes':
-        if (detailsData && detailsData.length > 0 && detailsData[detailsItemID]) {
-          return <HeroInfo data={detailsData[detailsItemID - 1]} />;
+        if (heroes && heroes.length > 0) {
+          index = heroes.find((hero) => hero.localized_name === detailsItemID);
+          return <IndividualHeroPage hero={index} />;
         }
         return (
           <div className="error-fetch">
@@ -42,10 +41,10 @@ const DetailsItem = () => {
           </div>
         );
       case 'items':
-        if (detailsData && detailsData.length > 0) {
-          const selectedItem = detailsData.find((item) => item.key === detailsItemID);
-          if (selectedItem) {
-            return <ItemPresentation data={selectedItem} />;
+        if (items && items.length > 0) {
+          index = items.findIndex((item) => item.key === detailsItemID);
+          if (index) {
+            return <ItemPresentation data={index} />;
           }
         }
         return (
@@ -56,12 +55,12 @@ const DetailsItem = () => {
           </div>
         );
       case 'proMatches':
-        if (detailsData && detailsData.length > 0) {
-          const index = detailsData.findIndex(
-            (object) => object.match_id === Number(detailsItemID),
+        if (matches && matches.length > 0) {
+          index = matches.findIndex(
+            (object) => object.match_id === Number(detailsItemID)
           );
           if (index !== -1) {
-            return <MatchInfo data={detailsData[index]} />;
+            return <MatchInfo data={matches[index]} />;
           }
         }
         return (
@@ -72,12 +71,12 @@ const DetailsItem = () => {
           </div>
         );
       case 'proPlayers':
-        if (detailsData && detailsData.length > 0) {
-          const index2 = detailsData.findIndex(
-            (object) => object.account_id === Number(detailsItemID),
+        if (players && players.length > 0) {
+          index = players.findIndex(
+            (object) => object.account_id === Number(detailsItemID)
           );
-          if (index2 !== -1) {
-            return <ProPlayerProfile data={detailsData[index2]} />;
+          if (index !== -1) {
+            return <ProPlayerProfile data={players[index]} />;
           }
         }
         return (
@@ -99,6 +98,6 @@ const DetailsItem = () => {
   };
 
   return <section>{renderComponent()}</section>;
-};
+}
 
 export default DetailsItem;

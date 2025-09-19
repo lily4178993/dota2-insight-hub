@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './proPlayerProfile.css';
 
-const ProPlayerProfile = ({ data }) => {
+function ProPlayerProfile({ data }) {
   if (!data || data.length === 0) {
     return (
       <div className="error-fetch">
@@ -71,7 +71,7 @@ const ProPlayerProfile = ({ data }) => {
 
     </div>
   );
-};
+}
 
 ProPlayerProfile.propTypes = {
   data: PropTypes.shape({

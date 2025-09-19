@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './filter.css';
 
-const Filter = ({ setFilter }) => {
+function Filter({ setFilter }) {
   const [isBoxFilterOpen, setIsBoxFilterOpen] = useState(true);
 
   return (
@@ -45,7 +45,7 @@ const Filter = ({ setFilter }) => {
       </div>
     </div>
   );
-};
+}
 
 Filter.propTypes = {
   setFilter: PropTypes.func,
