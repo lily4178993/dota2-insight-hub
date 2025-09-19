@@ -12,8 +12,8 @@ import generateManifest from './generate_manifest.js';
 
 // API endpoints & directories
 const API_ITEMS = 'https://api.opendota.com/api/constants/items';
-const TEMPORARY_DIR = './temporary_assets';
-const PUBLIC_DIR = 'public\\assets\\items_hd';
+const TEMPORARY_DIR = 'src/assets/temporary_assets';
+const ASSETS_DIR = 'src/assets/items_hd';
 const MANIFEST_PATH = 'src/constants/items_upscaled_manifest.json';
 
 // Model & executable selection
@@ -65,8 +65,8 @@ console.log(
 
 // Ensure temporary directory exists and create it if not
 await fse.ensureDir(TEMPORARY_DIR);
-// Ensure public directory exists and create it if not
-await fse.ensureDir(PUBLIC_DIR);
+// Ensure the dedicated assets directory exists and create it if not
+await fse.ensureDir(ASSETS_DIR);
 // Utility: Check if file exists
 const fileExists = (filePath) => fs.existsSync(filePath);
 
@@ -207,24 +207,28 @@ const processImage = async (url) => {
   }
 };
 
-// Publish the upscaled images to the public directory
-const publishToPublic = async () => {
-  console.log(chalk.yellow(`🧹 Removing old public assets from ${PUBLIC_DIR}`));
-  await fse.emptyDir(PUBLIC_DIR);
+// Publish the upscaled images to the dedicated assets directory
+const publishToAssets = async () => {
+  console.log(
+    chalk.yellow(`🧹 Removing old dedicated assets from ${ASSETS_DIR}`),
+  );
+  await fse.emptyDir(ASSETS_DIR);
 
   // Generate manifest
   generateManifest(TEMPORARY_DIR, MANIFEST_PATH);
   console.log(chalk.cyan(`📜 Manifest generated at ${MANIFEST_PATH}`));
 
-  // Copy images to public
+  // Copy images to the dedicated assets directory
   const files = fs.readdirSync(TEMPORARY_DIR).filter((f) => f.endsWith('.png'));
   await Promise.all(
     files.map((file) => fs.promises.copyFile(
       path.join(TEMPORARY_DIR, file),
-      path.join(PUBLIC_DIR, file),
+      path.join(ASSETS_DIR, file),
     )),
   );
-  console.log(`✅ Published ${files.length} images to public folder`);
+  console.log(
+    `✅ Published ${files.length} images to the dedicated assets folder`,
+  );
 };
 
 // Log the current status of the processing pipeline
@@ -263,13 +267,13 @@ const logStatus = () => {
     // Run all tasks with concurrency limit
     await Promise.all(tasks);
 
-    // Publish the upscaled images to public directory if needed
+    // Publish the upscaled images to the dedicated assets directory if needed
     if (shouldPublish) {
-      await publishToPublic();
+      await publishToAssets();
     } else {
       console.log(
         chalk.gray(
-          'ℹ️ Skipping publishing to /public directory. (Use --publish or NODE_ENV=production to enable.)',
+          'ℹ️ Skipping publishing to the dedicated assets directory. (Use --publish or NODE_ENV=production to enable.)',
         ),
       );
     }
