@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -8,7 +9,7 @@ function HeroList({ heroesData }) {
   const itemsPerPage = 12;
   const { currentItems, handlePageChange, itemOffset } = usePagination(
     heroesData,
-    itemsPerPage,
+    itemsPerPage
   );
 
   return (
@@ -46,8 +47,23 @@ function HeroList({ heroesData }) {
             </Link>
           ))
         ) : (
-          <p className="text-3xl flex items-center justify-center w-full h-96 border-[1px] border-slate-400 rounded-md">
+          <p className="relative flex items-center justify-center w-full text-3xl h-96 box-wavy-full">
             List of Heroes not found
+            <svg className="absolute">
+              <filter id="wavy">
+                <feTurbulence
+                  x="0"
+                  y="0"
+                  baseFrequency="0.02"
+                  numOctaves="5"
+                  seed="2"
+                />
+                <feDisplacementMap
+                  in="SourceGraphic"
+                  scale="30"
+                />
+              </filter>
+            </svg>
           </p>
         )}
       </div>

@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -10,7 +11,7 @@ function HeroGrid({ heroesData }) {
   const itemsPerPage = 8;
   const { currentItems, handlePageChange, itemOffset } = usePagination(
     heroesData,
-    itemsPerPage,
+    itemsPerPage
   );
 
   return (
@@ -25,7 +26,7 @@ function HeroGrid({ heroesData }) {
               <img
                 src={generateHeroPosterlink(
                   `https://api.opendota.com${hero?.img}`,
-                  'png',
+                  'png'
                 )}
                 alt={hero?.localized_name}
                 className="mt-6 transition-all w-36 h-36 lg:mt-0 group-hover:scale-110 group-hover:mt-6"
@@ -70,8 +71,23 @@ function HeroGrid({ heroesData }) {
             </div>
           ))
         ) : (
-          <p className="text-3xl flex items-center justify-center w-full h-96 border-[1px] border-slate-400 rounded-md">
+          <p className="relative flex items-center justify-center w-full text-3xl h-96 box-wavy-full">
             List of Heroes not found
+            <svg className="absolute">
+              <filter id="wavy">
+                <feTurbulence
+                  x="0"
+                  y="0"
+                  baseFrequency="0.02"
+                  numOctaves="5"
+                  seed="2"
+                />
+                <feDisplacementMap
+                  in="SourceGraphic"
+                  scale="30"
+                />
+              </filter>
+            </svg>
           </p>
         )}
       </div>

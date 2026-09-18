@@ -1,20 +1,18 @@
+/* eslint-disable max-len */
 /* eslint-disable comma-dangle */
 import { useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-// import { Parallax } from 'swiper/modules';
 import { selectHeroesState } from '../../redux/slices';
 import useFilteredData from '../../hooks/useFilteredData';
 import {
   FilterCheckboxesPanel,
   GridViewToggle,
-  /* HeroCarousel, */
   HeroGrid,
   HeroList,
   SearchPanel,
 } from '../../components';
-// import { BannerHeroes4 } from '../../assets';
-import { heroFilters /* , heroesSlidesData */ } from '../../constants';
+import { heroFilters } from '../../constants';
 
 function HeroesPage() {
   const { detailsListName } = useParams();
@@ -22,6 +20,8 @@ function HeroesPage() {
   const [listViewOption, setListViewOption] = useState(false);
   const [filters, setFilters] = useState(heroFilters);
   const [searchQuery, setSearchQuery] = useState('');
+
+  /* Add a function to check internet status to retrieve heroes data from the api or from the local storage if not empty. Note: If connection failed and local storage empty, just display the usual "List of Heros empty" or something like that */
 
   useEffect(() => {
     const savedOption = localStorage.getItem('listViewOption');
