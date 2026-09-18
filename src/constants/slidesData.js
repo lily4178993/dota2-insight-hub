@@ -2,27 +2,45 @@
 const homeSlidesData = [
   {
     id: 1,
-    title: 'Unleash Your Inner Champion!',
+    title: 'Discover Dota 2 Heroes',
     description:
-      'Embark on an adrenaline-fueled journey through the dynamic world of Dota 2, where every move could be the difference between victory and defeat.',
+      'Explore the unique abilities and stories of your favorite Dota 2 heroes.',
+    image: '/assets/banner-heroes.jpg',
   },
   {
     id: 2,
-    title: 'Experience Dota 2 Like Never Before',
+    title: 'Master Powerful Items',
     description:
-      'Join us as we explore the thrilling depths of Dota 2, where strategies collide and legends are born. Your adventure starts here!',
+      'View detailed descriptions and uses of the powerful items in Dota 2.',
+    image: '',
   },
   {
     id: 3,
-    title: 'Forge Your Legacy on the Battlefield!',
+    title: 'Watch Epic Matches',
     description:
-      'Enter the fray of Dota 2 and carve your name into the annals of history. Join us in the quest for glory and immortality!',
+      'Enjoy highlights and recaps of the most thrilling Dota 2 matches.',
+    image: '/assets/banner-matches.jpg',
   },
   {
     id: 4,
-    title: 'Where Legends Converge',
+    title: 'Meet Pro Players',
     description:
-      'Welcome to the epicenter of Dota 2 excellence. Join a community of champions as we unravel the mysteries of the Dota universe together.',
+      'Learn about the top players in the Dota 2 community and their achievements.',
+    image: '/assets/banner-players.jpg',
+  },
+  {
+    id: 6,
+    title: 'Stay Updated with Latest News',
+    description:
+      'Get the latest updates and news in the Dota 2 world, all in one place.',
+    image: '/assets/banner-matches.jpg',
+  },
+  {
+    id: 10,
+    title: 'Unleash Your Potential',
+    description:
+      'Get inspired to improve your game by exploring top strategies and tips.',
+    image: '/assets/banner-matches.jpg',
   },
 ];
 
