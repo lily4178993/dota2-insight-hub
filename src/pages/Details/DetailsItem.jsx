@@ -57,7 +57,7 @@ function DetailsItem() {
       case 'proMatches':
         if (matches && matches.length > 0) {
           index = matches.findIndex(
-            (object) => object.match_id === Number(detailsItemID)
+            (object) => object.match_id === Number(detailsItemID),
           );
           if (index !== -1) {
             return <MatchInfo data={matches[index]} />;
@@ -73,7 +73,7 @@ function DetailsItem() {
       case 'proPlayers':
         if (players && players.length > 0) {
           index = players.findIndex(
-            (object) => object.account_id === Number(detailsItemID)
+            (object) => object.account_id === Number(detailsItemID),
           );
           if (index !== -1) {
             return <ProPlayerProfile data={players[index]} />;

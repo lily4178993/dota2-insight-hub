@@ -1,15 +1,15 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { Footer, Header } from '../../components';
+/* import { Footer , Header } from '../../components'; */
 
 function AppLayout() {
   return (
-    <div>
-      <Header />
+    <div className="appLayout">
+      {/* <Header /> */}
       <main>
         <Outlet />
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

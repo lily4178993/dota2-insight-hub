@@ -17,7 +17,10 @@ function PromatchesList({ proMatchesData }) {
       <div className="detailsList-container">
         {proMatchesData.length > 0 ? (
           proMatchesData.map((promatch) => (
-            <Link to={`/details/proMatches/${promatch.match_id}`} key={promatch.match_id}>
+            <Link
+              to={`/proMatches/${promatch.match_id}`}
+              key={promatch.match_id}
+            >
               <Card
                 cardImage={matchesImage}
                 cardTitle={promatch?.dire_name || 'N/A'}
@@ -25,8 +28,9 @@ function PromatchesList({ proMatchesData }) {
               />
             </Link>
           ))
-        )
-          : (<p>List of Pro Matches not found</p>)}
+        ) : (
+          <p>List of Pro Matches not found</p>
+        )}
       </div>
     </section>
   );

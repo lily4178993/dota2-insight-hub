@@ -10,9 +10,9 @@ function Nav() {
   // Define a function to determine the route based on the pathname
   const getRoute = () => {
     const { pathname } = location;
-    if (pathname.match(/\/details\/[^/]+\/[^/]+/)) {
-      return `/details/${pathname.split('/').slice(2, -1).join('/')}`;
-    } if (pathname.match(/\/details\/[^/]+/)) {
+    if (pathname.match(/[^/]+\/[^/]+/)) {
+      return `/${pathname.split('/').slice(2, -1).join('/')}`;
+    } if (pathname.match(/[^/]+/)) {
       return '/';
     }
     return 'home';
@@ -75,7 +75,7 @@ function Nav() {
             </li>
             <li className="nav-item">
               <Link
-                to="/details/heroes"
+                to="/heroes"
                 rel="noopener noreferrer"
                 aria-label="Heroes"
                 onClick={() => setIsNavOpen(!isNavOpen)}
@@ -90,7 +90,7 @@ function Nav() {
             </li>
             <li className="nav-item">
               <Link
-                to="/details/items"
+                to="/items"
                 rel="noopener noreferrer"
                 aria-label="Home"
                 onClick={() => setIsNavOpen(!isNavOpen)}
@@ -105,7 +105,7 @@ function Nav() {
             </li>
             <li className="nav-item">
               <Link
-                to="/details/proMatches"
+                to="/proMatches"
                 rel="noopener noreferrer"
                 aria-label="Pro Matches"
                 onClick={() => setIsNavOpen(!isNavOpen)}
@@ -120,7 +120,7 @@ function Nav() {
             </li>
             <li className="nav-item">
               <Link
-                to="/details/proPlayers"
+                to="/proPlayers"
                 rel="noopener noreferrer"
                 aria-label="Pro Players"
                 onClick={() => setIsNavOpen(!isNavOpen)}

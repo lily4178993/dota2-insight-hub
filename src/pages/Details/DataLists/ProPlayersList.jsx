@@ -16,7 +16,10 @@ function ProPlayersList({ proPlayersData }) {
       <div className="detailsList-container">
         {proPlayersData.length > 0 ? (
           proPlayersData.map((proplayer) => (
-            <Link to={`/details/proPlayers/${proplayer.account_id}`} key={proplayer.account_id}>
+            <Link
+              to={`/proPlayers/${proplayer.account_id}`}
+              key={proplayer.account_id}
+            >
               <Card
                 cardImage={proplayer?.avatarmedium}
                 cardTitle={proplayer?.personaname}
@@ -24,8 +27,9 @@ function ProPlayersList({ proPlayersData }) {
               />
             </Link>
           ))
-        )
-          : (<p>List of pro players not found</p>)}
+        ) : (
+          <p>List of pro players not found</p>
+        )}
       </div>
     </section>
   );
