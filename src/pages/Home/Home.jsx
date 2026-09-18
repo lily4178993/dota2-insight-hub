@@ -1,60 +1,55 @@
+/* eslint-disable max-len */
+/* eslint-disable no-unused-vars */
+/* eslint-disable object-curly-newline */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable function-paren-newline */
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable comma-dangle */
 
+import { useSelector } from 'react-redux';
 import {
-  IconBattleGear,
-  IconFiles,
-  IconMultiTarget,
-  IconTrophy2,
+  BgCardHeroLarge,
+  IconPackage,
+  IconSquad,
+  IconSword,
+  testImage,
 } from '../../assets';
-import { ItemCard2 } from '../../components';
-
-/* import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { CustomRanking } from '../../components';
 import { selectHeroesState } from '../../redux/slices';
-import { generateHeroPosterlink } from '../../utils';
- */
+
 function Home() {
-  /*   const { heroes } = useSelector(selectHeroesState);
-  const numberOfHeroesToDisplay = heroes.slice(10, 18); */
-
-  /*   const { items } = useSelector(selectAllItemsState);
-  const categorizedItems = items.map((item) => ({
-    item,
-    categories: categorizeItem(item),
-  })); */
-
-  /*   const itemsToDisplay = categorizedItems
-    .filter(({ categories }) =>
-      categories.some(({ category }) => category === 'Magical')
-    )
-    .slice(0, 18)
-    .map(({ item }) => ({
-      id: item.id,
-      image: generateItemIconlink(item.img),
-    }));
- */
-  const rankingCriteria = [
+  const { heroes } = useSelector(selectHeroesState);
+  const categories = [
     {
-      icon: IconMultiTarget,
-      title: 'Strategic Complexity',
-      description: 'Analysis of the learning curve and tactical depth',
+      title: 'Heroes',
+      description:
+        'Découvrez les profils, capacités et rôles de tous les héros',
+      details: `DagCore Ranking System • ${heroes.length} heroes • Guides`,
+      icon: IconSword,
+      image: BgCardHeroLarge,
+      color: '#7c6202',
+      href: '/heroes',
     },
     {
-      icon: IconTrophy2,
-      title: 'Meta Impact',
-      description:
-        'Influence in the different phases of the game and compositions',
+      title: 'Items',
+      description: 'Explorez les objets et leurs effets sur le gameplay',
+      details: 'Arbres de craft • Combos optimaux • Meta analysis',
+      icon: IconPackage,
+      image: testImage,
+      color: '#024c7e',
+      href: '/items',
     },
     {
-      icon: IconBattleGear,
-      title: 'Carry Potential',
-      description:
-        'Ability to carry the team according to the role and situation',
+      title: 'Players',
+      description: 'Consultez les profils et stats de la communauté',
+      details: 'Classements • Statistiques • Historique des parties',
+      icon: IconSquad,
+      image: testImage,
+      color: '#7c0202',
+      href: '/players',
     },
   ];
+
   return (
     <div className="flex flex-col bg-gradient-to-r from-black to-slate-900">
       {/* Banner */}
@@ -66,42 +61,41 @@ function Home() {
         About project & System Dag
       </section>
       {/* Categorization */}
-      <section className="relative w-full pt-8 pb-10">
-        Explore with 3 cards: Heroes, items, players
-      </section>
-      {/* New updates */}
-      <section className="relative w-full pt-8 pb-10">
-        New updates from the API
+      <section className="relative w-full px-6 py-20 mx-auto max-w-7xl">
+        <div className="mb-16 text-center">
+          <h2 className="mb-4 text-4xl">Explore the Dota Universe</h2>
+          <p className="max-w-2xl mx-auto text-xl text-gray-300">
+            Dive into our three main categories for a complete analysis
+            experience.
+          </p>
+        </div>
+        <div className="relative grid gap-8 mx-auto justify-center items-stretch md:grid-cols-3 max-w-[90vw] mb-16">
+          {categories.map((category, index) => (
+            <div
+              key={category.title}
+              className="relative overflow-hidden transition-all duration-500 bg-gray-900 cursor-pointer before:bg-gradient-to-t before:from-black before:to-black/20 size-full"
+              style={{
+                animationDelay: `${index * 200}ms`,
+              }}
+            >
+              <img
+                src={category.image}
+                alt="heroes card"
+                className="object-cover size-full"
+              />
+              <div className="absolute bottom-0 p-5 text-gray-300 size-full">
+                content here Lorem ipsum dolor sit amet consectetur adipisicing
+                elit. Voluptate eaque voluptatum amet consequuntur hic earum
+                nobis repellat, atque commodi labore quidem impedit ea ipsam,
+                neque corrupti expedita voluptas. Aliquid, suscipit.
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
       {/* DagCore Ranking System */}
       <section className="relative w-full p-10">
-        <div className="mb-16 text-center">
-          <div className="flex items-center justify-center gap-6">
-            <img
-              src={IconFiles}
-              alt="DagCore Ranking System"
-              className="inline object-cover p-1 size-24"
-            />
-            <h2 className="text-[3.5rem]">DagCore Ranking System</h2>
-          </div>
-          <p className="max-w-3xl mx-auto text-xl leading-relaxed text-gray-400">
-            Our unique approach to evaluating heroes goes beyond traditional
-            statistics to analyze the true strategic impact within the Dota
-            ecosystem. It’s a passionate reading of the game, crafted for fans
-            who love to dig deeper.
-          </p>
-        </div>
-
-        <div className="relative grid gap-8 md:grid-cols-3 max-w-[90vw] mb-16">
-          {rankingCriteria.map((criteria) => (
-            <ItemCard2
-              key={criteria.title}
-              imageSrc={criteria.icon}
-              title={criteria.title}
-              description={criteria.description}
-            />
-          ))}
-        </div>
+        <CustomRanking />
       </section>
     </div>
   );
