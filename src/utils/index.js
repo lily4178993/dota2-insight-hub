@@ -5,3 +5,5 @@ export { default as generateHeroPosterlink } from './generateHeroPosterlink';
 export { default as generateItemIconlink } from './generateItemIconlink';
 export { default as getExpertCategorizedItems } from './getExpertCategorizedItems';
 export { default as getBeginnerCategorizedItems } from './getBeginnerCategorizedItems';
+export { default as formatNumber } from './formatNumber';
+export { default as loopArray } from './loopArray';
