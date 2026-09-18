@@ -1,86 +1,104 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { Card, Filter } from '../../components';
-import { fetchHeroes } from '../../redux/slices/heroesSlice';
-import { fetchItems } from '../../redux/slices/itemsSlice';
-import { fetchMatches } from '../../redux/slices/matchesSlice';
-import { fetchPlayers } from '../../redux/slices/playersSlice';
-import heroesImage from '../../assets/angelSword.png';
-import itemsImage from '../../assets/hammer.png';
-import matchesImage from '../../assets/trophy.png';
-import playersImage from '../../assets/gamepad.png';
-import './home.css';
+/* eslint-disable max-len */
+/* eslint-disable no-unused-vars */
+/* eslint-disable object-curly-newline */
+/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable function-paren-newline */
+/* eslint-disable implicit-arrow-linebreak */
+/* eslint-disable comma-dangle */
 
-const Home = () => {
-  const { heroes, status: statusHeroes } = useSelector((state) => state.heroes);
-  const { items, status: statusItems } = useSelector((state) => state.items);
-  const { matches, status: statusMatches } = useSelector((state) => state.matches);
-  const { players, status: statusPlayers } = useSelector((state) => state.players);
-  const dispatch = useDispatch();
+import { useSelector } from 'react-redux';
+import {
+  BgCardHeroLarge,
+  IconPackage,
+  IconSquad,
+  IconSword,
+  testImage,
+} from '../../assets';
+import { CustomRanking } from '../../components';
+import { selectHeroesState } from '../../redux/slices';
 
-  useEffect(() => {
-    if (statusHeroes === 'idle') {
-      dispatch(fetchHeroes());
-    }
-    if (statusItems === 'idle') {
-      dispatch(fetchItems());
-    }
-    if (statusMatches === 'idle') {
-      dispatch(fetchMatches());
-    }
-    if (statusPlayers === 'idle') {
-      dispatch(fetchPlayers());
-    }
-  }, [
-    dispatch,
-    statusHeroes,
-    statusItems,
-    statusMatches,
-    statusPlayers,
-  ]);
-
-  const [filter, setFilter] = useState('Names');
-
-  // Define a function to filter cards based on length
-  const filterCardsByLength = () => {
-    const data = [
-      { cardTitle: 'Heroes', cardImage: heroesImage, cardCount: heroes ? heroes.length : 0 },
-      { cardTitle: 'Items', cardImage: itemsImage, cardCount: items ? items.length : 0 },
-      { cardTitle: 'Pro Matches', cardImage: matchesImage, cardCount: matches ? matches.length : 0 },
-      { cardTitle: 'Pro Players', cardImage: playersImage, cardCount: players ? players.length : 0 },
-    ];
-
-    if (filter === 'Counts') {
-    // Sort the cards by length in descending order
-      return data.sort((a, b) => b.cardCount - a.cardCount);
-    }
-
-    return data;
-  };
-
-  const urlSpaceChecker = (stringParam) => {
-    const stringWithoutSpaces = stringParam.replace(/\s/g, '');
-    const firstLetter = stringWithoutSpaces.charAt(0).toLowerCase();
-    return firstLetter + stringWithoutSpaces.slice(1);
-  };
+function Home() {
+  const { heroes } = useSelector(selectHeroesState);
+  const categories = [
+    {
+      title: 'Heroes',
+      description:
+        'Découvrez les profils, capacités et rôles de tous les héros',
+      details: `DagCore Ranking System • ${heroes.length} heroes • Guides`,
+      icon: IconSword,
+      image: BgCardHeroLarge,
+      color: '#7c6202',
+      href: '/heroes',
+    },
+    {
+      title: 'Items',
+      description: 'Explorez les objets et leurs effets sur le gameplay',
+      details: 'Arbres de craft • Combos optimaux • Meta analysis',
+      icon: IconPackage,
+      image: testImage,
+      color: '#024c7e',
+      href: '/items',
+    },
+    {
+      title: 'Players',
+      description: 'Consultez les profils et stats de la communauté',
+      details: 'Classements • Statistiques • Historique des parties',
+      icon: IconSquad,
+      image: testImage,
+      color: '#7c0202',
+      href: '/players',
+    },
+  ];
 
   return (
-    <section>
-      <Filter setFilter={setFilter} />
-      <div className="home-container">
-        {filterCardsByLength().map((cardData) => (
-          <Link to={`/details/${urlSpaceChecker(`${cardData.cardTitle}`)}`} key={cardData.cardTitle}>
-            <Card
-              cardImage={cardData.cardImage}
-              cardTitle={cardData.cardTitle}
-              cardCount={cardData.cardCount}
-            />
-          </Link>
-        ))}
-      </div>
-    </section>
+    <div className="flex flex-col bg-gradient-to-r from-black to-slate-900">
+      {/* Banner */}
+      <section className="relative w-full pt-8 pb-10 md:flex md:justify-between md:flex-row-reverse">
+        Banner
+      </section>
+      {/* Disclaimer & Infos */}
+      <section className="relative w-full pt-8 pb-10">
+        About project & System Dag
+      </section>
+      {/* Categorization */}
+      <section className="relative w-full px-6 py-20 mx-auto max-w-7xl">
+        <div className="mb-16 text-center">
+          <h2 className="mb-4 text-4xl">Explore the Dota Universe</h2>
+          <p className="max-w-2xl mx-auto text-xl text-gray-300">
+            Dive into our three main categories for a complete analysis
+            experience.
+          </p>
+        </div>
+        <div className="relative grid gap-8 mx-auto justify-center items-stretch md:grid-cols-3 max-w-[90vw] mb-16">
+          {categories.map((category, index) => (
+            <div
+              key={category.title}
+              className="relative overflow-hidden transition-all duration-500 bg-gray-900 cursor-pointer before:bg-gradient-to-t before:from-black before:to-black/20 size-full"
+              style={{
+                animationDelay: `${index * 200}ms`,
+              }}
+            >
+              <img
+                src={category.image}
+                alt="heroes card"
+                className="object-cover size-full"
+              />
+              <div className="absolute bottom-0 p-5 text-gray-300 size-full">
+                content here Lorem ipsum dolor sit amet consectetur adipisicing
+                elit. Voluptate eaque voluptatum amet consequuntur hic earum
+                nobis repellat, atque commodi labore quidem impedit ea ipsam,
+                neque corrupti expedita voluptas. Aliquid, suscipit.
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+      {/* DagCore Ranking System */}
+      <section className="relative w-full p-10">
+        <CustomRanking />
+      </section>
+    </div>
   );
-};
+}
 
 export default Home;

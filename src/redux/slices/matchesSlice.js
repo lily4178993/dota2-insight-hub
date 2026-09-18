@@ -1,37 +1,40 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-
-const API_BASE_URL = 'https://api.opendota.com/api';
+import API_BASE_URL from '../config/constant';
 
 // Define an async thunk for fetching matches data
-export const fetchMatches = createAsyncThunk('matches/fetchMatches', async () => {
-  const response = await axios.get(`${API_BASE_URL}/proMatches`);
-  return response.data;
-});
+export const fetchMatches = createAsyncThunk(
+  'matches/fetchMatches',
+  async () => {
+    const response = await axios.get(`${API_BASE_URL}/proMatches`);
+    return response.data;
+  },
+);
 
 // Create the matches slice
 const matchesSlice = createSlice({
   name: 'matches',
   initialState: {
     matches: [],
-    status: 'idle',
+    loading: false,
     error: null,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchMatches.pending, (state) => {
-        state.status = 'loading';
+        state.loading = true;
       })
       .addCase(fetchMatches.fulfilled, (state, action) => {
-        state.status = 'succeeded';
+        state.loading = false;
         state.matches = action.payload;
       })
       .addCase(fetchMatches.rejected, (state, action) => {
-        state.status = 'failed';
+        state.loading = false;
         state.error = action.error.message;
       });
   },
 });
 
-export default matchesSlice.reducer;
+export const selectMatchesState = (state) => state.matches;
+export default matchesSlice;
